@@ -9,8 +9,8 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Beauty In Stem — Korean Skincare & Skin Fitness",
-  description: "Korean skincare formulas engineered for ultimate skin fitness. Advanced PDRN cellular science developed in collaboration with Korean skin scientists.",
+  title: "BEAUTY IN STEM — Korean Cellular Skincare & Skin Fitness",
+  description: "Formulated as a Skin Fitness Tool. Engineered in Seoul with bio-identical ceramides and multi-molecular hydration science to fortify cutaneous barrier resilience.",
   icons: {
     icon: "/favicon.ico",
   },
