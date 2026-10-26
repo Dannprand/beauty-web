@@ -527,7 +527,7 @@ export default function LuxurySingleProductLanding() {
               <div className="flex items-baseline justify-between">
                 <div>
                   <span className="text-xs text-stone-500 block uppercase tracking-wider">Official Offering</span>
-                  <span className="text-3xl font-bold text-stone-900">$58.00 USD</span>
+                  <span className="text-3xl font-bold text-stone-900">Rp 349.000</span>
                 </div>
                 <span className="text-[11px] text-emerald-800 font-semibold bg-emerald-100/70 px-3 py-1 rounded-full border border-emerald-300">
                   Allocated Batch • Ready for Dispatch
