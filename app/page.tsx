@@ -595,7 +595,7 @@ export default function LuxurySingleProductLanding() {
                     <span className="text-[#b56d62] font-semibold tracking-wider">
                       {b.highlight}
                     </span>
-                    <span className="text-stone-300 font-mono font-bold">0{idx + 1}</span>
+                    <span className="text-stone-300 font-semibold tracking-wider font-bold">0{idx + 1}</span>
                   </div>
                 </div>
               );
@@ -630,7 +630,7 @@ export default function LuxurySingleProductLanding() {
                   <span className="text-[10px] font-bold tracking-widest uppercase text-[#d08c81] bg-[#d08c81]/10 px-3 py-1 rounded-full">
                     {item.role}
                   </span>
-                  <span className="text-xs text-stone-400 font-mono">0{idx + 1}</span>
+                  <span className="text-xs text-stone-400 font-semibold tracking-wider">0{idx + 1}</span>
                 </div>
                 <h3 className="text-xl font-medium text-stone-900">{item.name}</h3>
                 <span className="text-xs text-stone-500 font-medium block -mt-1">

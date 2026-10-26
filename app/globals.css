@@ -16,6 +16,8 @@
   --color-blush-soft: var(--accent-soft);
   --color-stone-dark: var(--stone-dark);
   --color-stone-card: var(--stone-card);
+  --font-sans: var(--font-afacad), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: var(--font-serif), Georgia, serif;
 }
 
 html {
@@ -25,7 +27,7 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-afacad), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   overflow-x: hidden;
 }
 
