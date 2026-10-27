@@ -3,17 +3,17 @@
 import React, { useState, useRef } from "react";
 import Image from "next/image";
 import {
-  ShieldCheck,
-  Droplets,
-  Sparkles,
-  Leaf,
-  CheckCircle2,
-  Mail,
-  MessageCircle,
   Volume2,
   VolumeX,
-  Clock,
+  ShieldCheck,
+  Droplets,
+  Leaf,
+  Sparkles,
+  CheckCircle2,
   Send,
+  MessageCircle,
+  Mail,
+  Clock,
   ExternalLink,
   Menu,
   X,
@@ -26,30 +26,30 @@ const PROTOTYPE_IMAGES = [
   {
     id: "angle-1",
     src: "/assets/prototype%20produk%20lotion.jpg",
-    title: "Signature Architectural Vessel",
-    subtitle: "Minimalist UV-protective flacon finished with a tactile, matte-stone ceramic feel",
-    caption: "Studio Front View",
+    title: "Architectural Vessel",
+    subtitle: "Minimalist UV-protective bottle with a tactile matte-stone finish.",
+    caption: "Front View",
   },
   {
     id: "angle-2",
     src: "/assets/prototype%20produk%20lotion%202.jpg",
-    title: "Hermetic Precision Dispenser",
-    subtitle: "Airless micro-dosing pump engineered to preserve active ingredient potency and hygienic purity",
-    caption: "Precision Pump Mechanism",
+    title: "Precision Dispenser",
+    subtitle: "Airless micro-pump engineered to preserve formula potency and purity.",
+    caption: "Airless Pump",
   },
   {
     id: "angle-3",
     src: "/assets/prototype%20produk%20lotion%203.jpg",
-    title: "Weightless Micro-Emulsion Texture",
-    subtitle: "Featherlight lipid sphere matrix that dissolves seamlessly into the stratum corneum with zero residue",
-    caption: "Formulation & Texture Nuance",
+    title: "Weightless Texture",
+    subtitle: "Featherlight micro-emulsion that melts into skin with zero residue.",
+    caption: "Texture Nuance",
   },
   {
     id: "angle-4",
     src: "/assets/prototype%20produk%20lotion%204.jpg",
-    title: "The Curated Vanity Ritual",
-    subtitle: "An understated tactile sculpture designed to elevate your contemplative daily skincare regimen",
-    caption: "Vanity Still Life",
+    title: "Curated Vanity Ritual",
+    subtitle: "An understated tactile form designed to elevate your daily routine.",
+    caption: "Vanity Display",
   },
 ];
 
@@ -60,28 +60,28 @@ const INGREDIENTS = [
     type: "Ceramides NP, AP, EOP",
     role: "Lipid Matrix Reconstruction",
     description:
-      "A physiologically identical lipid triad engineered to seamlessly fuse with intercellular spaces, sealing microscopic barrier fractures caused by environmental stressors.",
+      "Identical to natural skin lipids, this complex fuses with intercellular layers to seal micro-cracks and restore barrier strength.",
   },
   {
-    name: "Multi-Molecular Hyaluronic Vector",
+    name: "Multi-Molecular Hyaluronic Acid",
     type: "5 Tiered Molecular Weights",
-    role: "Cross-Stratum Hydration",
+    role: "Cross-Layer Hydration",
     description:
-      "Micro-oligo fractions penetrate deeply into dermal reservoirs to stimulate turgor pressure, while high-weight polymers establish a breathable moisture veil at the surface.",
+      "Low-weight fractions penetrate deep into dermal layers, while high-weight polymers create a breathable protective moisture shield.",
   },
   {
-    name: "Korean Bio-Fermented Camellia & Rice",
-    type: "Cultured Botanical Bio-Extracts",
+    name: "Bio-Fermented Camellia & Rice",
+    type: "Cultured Botanical Extracts",
     role: "Cellular Antioxidant Defense",
     description:
-      "Bio-fermentation unlocks high-potency polyphenols and amino metabolites, dramatically accelerating cellular repair kinetics and shielding against daily oxidative decay.",
+      "Fermentation unlocks high-potency polyphenols and amino acids to combat daily oxidative stress and restore natural luminosity.",
   },
   {
     name: "Centella Asiatica & Niacinamide 2%",
     type: "Micro-Circulatory Calming Complex",
-    role: "Erythema Mitigation & Tone Refinement",
+    role: "Soothing & Tone Refinement",
     description:
-      "Downregulates inflammatory cytokine cascades, visibly placating sensitized skin and refining epidermal pore architecture into a smooth, luminous canvas.",
+      "Soothes reactive skin, reduces redness, and smooths epidermal texture into an even, balanced canvas.",
   },
 ];
 
@@ -89,27 +89,27 @@ const INGREDIENTS = [
 const BENEFITS = [
   {
     icon: ShieldCheck,
-    title: "Cutaneous Barrier Fortification",
-    desc: "Re-architects the stratum corneum with biomimetic lipids, protecting sensitive skin against micro-particulate pollution, arid climates, and oxidative stress.",
+    title: "Barrier Fortification",
+    desc: "Rebuilds the outer lipid matrix to shield against pollution, harsh climates, and environmental irritation.",
     highlight: "+98% Barrier Resilience",
   },
   {
     icon: Droplets,
-    title: "24-Hour Sustained Hydration Lock",
-    desc: "Engineered with proprietary micro-emulsion dynamics that absorb in seconds, delivering intense hydration without a trace of greasy occlusiveness.",
+    title: "24-Hour Hydration Lock",
+    desc: "Absorbs in seconds to provide lasting internal hydration without surface heaviness or grease.",
     highlight: "Zero Surface Residue",
   },
   {
     icon: Leaf,
-    title: "Cellular Calming & Redness Relief",
-    desc: "Rapidly attenuates cutaneous discomfort and reactive redness, bringing fragile, stressed skin back to a calm, equilibrated state.",
-    highlight: "Hypoallergenic Certified",
+    title: "Calming & Redness Relief",
+    desc: "Quickly eases skin tension and reactive redness, returning stressed skin to balanced comfort.",
+    highlight: "Hypoallergenic Tested",
   },
   {
     icon: Sparkles,
-    title: "Lit-From-Within Natural Radiance",
-    desc: "Restores optimal light refraction across the skin surface, imparting a supple, healthy, and youthful radiance that feels organic and alive.",
-    highlight: "Clinical Dewy Finish",
+    title: "Natural Healthy Radiance",
+    desc: "Refines light reflection across the skin for a fresh, supple, and naturally luminous glow.",
+    highlight: "Healthy Dewy Glow",
   },
 ];
 
@@ -130,11 +130,11 @@ export default function LuxuryResponsiveLanding() {
   const [clientMessage, setClientMessage] = useState("");
   const [inquirySent, setInquirySent] = useState(false);
 
-  // Toggle video audio
-  const toggleSound = () => {
+  // Toggle video mute
+  const toggleMute = () => {
     if (videoRef.current) {
-      videoRef.current.muted = !isMuted;
-      setIsMuted(!isMuted);
+      videoRef.current.muted = !videoRef.current.muted;
+      setIsMuted(videoRef.current.muted);
     }
   };
 
@@ -158,7 +158,7 @@ export default function LuxuryResponsiveLanding() {
   // Pre-configured VIP WhatsApp link
   const whatsappNumber = "6281234567890";
   const whatsappText = encodeURIComponent(
-    "Hello Beauty In Stem Concierge, I would like to inquire about the Hydra-Restore Bio-Lotion and personalized consultation."
+    "Hello Beauty In Stem Concierge, I would like to inquire about the Hydra-Restore Bio-Lotion."
   );
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappText}`;
 
@@ -167,7 +167,7 @@ export default function LuxuryResponsiveLanding() {
       {/* ----------------- TOP TICKER / DISPATCH BAR ----------------- */}
       <div className="bg-[#141312] text-[#e8c5c1] text-[9px] sm:text-[10px] md:text-[11px] tracking-[0.2em] sm:tracking-[0.25em] uppercase py-2 sm:py-2.5 px-3 sm:px-4 text-center font-medium border-b border-white/5 flex items-center justify-center gap-2">
         <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#d08c81] animate-ping shrink-0" />
-        <span className="truncate">KOREAN CELLULAR SCIENCE • COMPLIMENTARY EXPRESS CONCIERGE DISPATCH</span>
+        <span className="truncate">ADVANCED CELLULAR SCIENCE • COMPLIMENTARY EXPRESS DISPATCH</span>
       </div>
 
       {/* ----------------- RESPONSIVE LUXURY HEADER ----------------- */}
@@ -262,41 +262,45 @@ export default function LuxuryResponsiveLanding() {
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="py-2.5 text-stone-200 hover:text-[#d08c81] border-b border-white/5 transition-colors"
               >
-                Clinical Efficacy
+                Efficacy & Benefits
               </a>
               <a
                 href="#science"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="py-2.5 text-stone-200 hover:text-[#d08c81] border-b border-white/5 transition-colors"
               >
-                Active Ingredients
+                Key Ingredients
               </a>
               <a
                 href="#concierge"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="py-2.5 text-[#d08c81] font-semibold transition-colors"
+                className="py-2.5 text-[#d08c81] font-semibold transition-colors flex items-center justify-between"
               >
-                Private Concierge Desk
+                <span>Private Concierge Desk</span>
+                <span className="text-stone-400">→</span>
               </a>
             </nav>
 
             <div className="pt-2">
               <a
-                href="#concierge"
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="w-full bg-[#d08c81] hover:bg-[#c27c71] text-stone-950 font-semibold py-3.5 rounded-full text-xs tracking-[0.2em] uppercase text-center block shadow-lg"
+                className="w-full flex items-center justify-center gap-2 bg-[#d08c81] text-stone-950 font-semibold text-xs tracking-wider uppercase py-3 rounded-full shadow-lg"
               >
-                Transmit Direct Inquiry
+                <MessageCircle className="w-4 h-4" />
+                <span>Chat with Advisory</span>
               </a>
             </div>
           </div>
         )}
       </header>
 
-      {/* ----------------- 1. HERO SECTION (RESPONSIVE FULLSCREEN VIDEO) ----------------- */}
-      <section className="relative w-full h-[92vh] min-h-[580px] sm:min-h-[640px] flex items-end pb-10 sm:pb-14 md:pb-20 overflow-hidden bg-stone-950">
-        {/* Fullscreen Background Video */}
-        <div className="absolute inset-0 w-full h-full">
+      {/* ----------------- 1. HERO VIDEO & MANIFESTO SECTION ----------------- */}
+      <section className="relative min-h-[90vh] sm:min-h-[92vh] flex items-center justify-center overflow-hidden bg-black py-16 sm:py-20">
+        {/* Background Video Player */}
+        <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
           <video
             ref={videoRef}
             src="/assets/video%20body.mp4"
@@ -310,33 +314,12 @@ export default function LuxuryResponsiveLanding() {
           <div className="absolute inset-0 bg-gradient-to-t from-[#141312] via-[#141312]/40 to-black/60" />
         </div>
 
-        {/* Audio Mute/Unmute Control (Responsive Position) */}
-        <div className="absolute top-4 right-4 sm:top-6 sm:right-6 z-20">
-          <button
-            onClick={toggleSound}
-            className="flex items-center space-x-1.5 sm:space-x-2 bg-stone-950/80 backdrop-blur-md hover:bg-stone-900 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-white/15 text-stone-200 text-[9px] sm:text-[10px] tracking-widest uppercase transition-all shadow-xl"
-            aria-label="Toggle Hero Video Audio"
-          >
-            {isMuted ? (
-              <>
-                <VolumeX className="w-3.5 h-3.5 text-stone-400" />
-                <span className="hidden xs:inline">Audio Muted</span>
-              </>
-            ) : (
-              <>
-                <Volume2 className="w-3.5 h-3.5 text-[#d08c81]" />
-                <span className="text-[#e8c5c1] hidden xs:inline">Audio Active</span>
-              </>
-            )}
-          </button>
-        </div>
-
         {/* Hero Narrative */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="max-w-3xl space-y-4 sm:space-y-5 md:space-y-6">
             <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[#e8c5c1] text-[9px] sm:text-[10px] font-medium tracking-[0.25em] sm:tracking-[0.3em] uppercase">
               <span className="w-1.5 h-1.5 rounded-full bg-[#d08c81]" />
-              Formulated in Seoul • Engineered for Skin Fitness
+              Biomimetic Science • Skin Fitness Formula
             </div>
 
             <h1 className="text-3xl xs:text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-light text-white tracking-tight leading-[1.05]">
@@ -345,7 +328,7 @@ export default function LuxuryResponsiveLanding() {
             </h1>
 
             <p className="text-stone-300 text-xs sm:text-sm md:text-base lg:text-lg font-light leading-relaxed max-w-xl">
-              Introducing <strong>Hydra-Restore Bio-Lotion</strong>. A pioneering cellular micro-emulsion conceived not merely to hydrate, but to systematically condition cutaneous barrier resilience against oxidative fatigue.
+              Introducing <strong>Hydra-Restore Bio-Lotion</strong>. A cellular micro-emulsion engineered to strengthen skin barrier resilience and deliver lasting, weightless hydration.
             </p>
 
             {/* Responsive Hero Action Buttons */}
@@ -367,7 +350,7 @@ export default function LuxuryResponsiveLanding() {
 
           {/* Bottom Cue Indicator */}
           <div className="pt-8 sm:pt-10 flex justify-between items-end border-t border-white/15 mt-8 sm:mt-10 text-stone-400 text-[9px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.25em] uppercase">
-            <span className="hidden sm:inline">COLLABORATIVE SEOUL DERMATOLOGICAL RESEARCH</span>
+            <span className="hidden sm:inline">ADVANCED DERMATOLOGICAL RESEARCH</span>
             <div className="flex items-center gap-2 mx-auto sm:mx-0">
               <span>EXPLORE BELOW</span>
               <div className="w-4 h-7 sm:w-5 sm:h-8 rounded-full border border-white/30 flex items-start justify-center p-1">
@@ -377,6 +360,16 @@ export default function LuxuryResponsiveLanding() {
             <span className="hidden md:inline">SINGLE MASTERPIECE EDITION</span>
           </div>
         </div>
+
+        {/* Video Audio Control Floating Pill */}
+        <button
+          onClick={toggleMute}
+          className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 z-20 flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-black/60 hover:bg-black/80 backdrop-blur-md border border-white/20 text-white text-[10px] sm:text-xs tracking-wider transition-all shadow-lg"
+          aria-label={isMuted ? "Unmute Ambient Sound" : "Mute Sound"}
+        >
+          {isMuted ? <VolumeX className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#d08c81]" /> : <Volume2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400" />}
+          <span className="uppercase text-[9px] sm:text-[10px]">{isMuted ? "Unmute Audio" : "Sound Playing"}</span>
+        </button>
       </section>
 
       {/* ----------------- 2. PHILOSOPHY SECTION (3 BIOLOGICAL PILLARS) ----------------- */}
@@ -394,7 +387,7 @@ export default function LuxuryResponsiveLanding() {
               <span className="font-serif italic font-normal text-[#e8c5c1]">Skin Fitness Tools</span>
             </h2>
             <p className="text-stone-300 text-xs sm:text-sm md:text-base font-light leading-relaxed">
-              Human skin is an inherently adaptive, intelligent biological system. Rather than providing passive, fleeting moisture, we engineer cellular tools that train the cutaneous architecture to withstand, repair, and maintain its peak performance over time.
+              Skin is an adaptive living system. Instead of fleeting moisture, we engineer cellular formulas that train your skin to stay balanced, resilient, and clear.
             </p>
           </div>
 
@@ -413,37 +406,37 @@ export default function LuxuryResponsiveLanding() {
                   SUPPORTING
                 </h3>
                 <p className="text-stone-300 text-xs sm:text-sm font-light leading-relaxed">
-                  Reinforcing the biological threshold of the skin mantle to withstand urban particulate matter, seasonal shifts, and free radical cascades without barrier destabilization.
+                  Reinforces the outer barrier against pollution, dry climates, and daily oxidative stress.
                 </p>
               </div>
               <div className="pt-5 sm:pt-6 mt-5 sm:mt-6 border-t border-white/10 flex items-center gap-2 text-[11px] sm:text-xs text-[#e8c5c1]">
                 <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#d08c81] shrink-0" />
-                <span>Stratum Corneum Architecture Defense</span>
+                <span>Cutaneous Barrier Defense</span>
               </div>
             </div>
 
             {/* Pillar 02 (Center Highlight) */}
             <div className="bg-gradient-to-b from-[#252220] to-[#1c1a19] rounded-2xl p-6 sm:p-8 border border-[#d08c81]/50 shadow-2xl flex flex-col justify-between relative group scale-100 md:scale-105">
               <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#d08c81] text-stone-950 text-[9px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.25em] uppercase font-bold px-3.5 sm:px-4 py-0.5 sm:py-1 rounded-full shadow-md whitespace-nowrap">
-                KOREAN BIO-FERMENTATION
+                BIOMIMETIC FORMULATION
               </div>
               <div>
                 <div className="flex items-center justify-between mb-5 sm:mb-6">
                   <span className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#d08c81] text-stone-950 flex items-center justify-center text-xs sm:text-sm font-bold shadow-lg">
                     02
                   </span>
-                  <span className="text-[9px] sm:text-[10px] tracking-[0.25em] uppercase text-[#e8c5c1]">ACTIVE RECONSTRUCTION</span>
+                  <span className="text-[9px] sm:text-[10px] tracking-[0.25em] uppercase text-[#e8c5c1]">ACTIVE RECOVERY</span>
                 </div>
                 <h3 className="text-xl sm:text-2xl font-light tracking-wide text-white mb-2 sm:mb-3">
                   RECOVER
                 </h3>
                 <p className="text-stone-300 text-xs sm:text-sm font-light leading-relaxed">
-                  Accelerating cellular recovery kinetics through bio-identical ceramides and fermented botanical bio-actives, re-establishing tissue density and silk-like equilibrium.
+                  Accelerates cellular recovery with bio-identical ceramides, restoring natural density and smooth texture.
                 </p>
               </div>
               <div className="pt-5 sm:pt-6 mt-5 sm:mt-6 border-t border-white/10 flex items-center gap-2 text-[11px] sm:text-xs text-[#e8c5c1]">
                 <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#d08c81] shrink-0" />
-                <span>Accelerated Cutaneous Rejuvenation</span>
+                <span>Rapid Skin Rejuvenation</span>
               </div>
             </div>
 
@@ -460,12 +453,12 @@ export default function LuxuryResponsiveLanding() {
                   MAINTAIN
                 </h3>
                 <p className="text-stone-300 text-xs sm:text-sm font-light leading-relaxed">
-                  Sustaining an uninterrupted 24-hour hydration lock while preserving tensile elasticity, preventing moisture attrition and signs of premature environmental aging.
+                  Maintains a 24-hour hydration lock while preserving natural elasticity and barrier comfort.
                 </p>
               </div>
               <div className="pt-5 sm:pt-6 mt-5 sm:mt-6 border-t border-white/10 flex items-center gap-2 text-[11px] sm:text-xs text-[#e8c5c1]">
                 <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#d08c81] shrink-0" />
-                <span>Long-Term Elastic Turgor Preservation</span>
+                <span>All-Day Moisture Lock</span>
               </div>
             </div>
           </div>
@@ -492,168 +485,157 @@ export default function LuxuryResponsiveLanding() {
         </div>
       </section>
 
-      {/* ----------------- 3. THE VESSEL & PROTOTYPE GALLERY SHOWCASE ----------------- */}
-      <section id="vessel" className="py-16 sm:py-20 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 border-b border-stone-200 pb-5 sm:pb-6">
-          <div className="space-y-1.5 sm:space-y-2">
-            <span className="text-[11px] sm:text-xs tracking-[0.25em] sm:tracking-[0.3em] uppercase text-[#d08c81] font-semibold">
-              The Masterpiece Formulation
+      {/* ----------------- 3. THE VESSEL & PROTOTYPE GALLERY SECTION ----------------- */}
+      <section id="vessel" className="py-16 sm:py-20 md:py-24 bg-[#fbfaf9]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto space-y-2.5 sm:space-y-3 mb-10 sm:mb-14">
+            <span className="text-[10px] sm:text-[11px] tracking-[0.3em] uppercase text-[#d08c81] font-semibold">
+              Signature Design
             </span>
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-light tracking-tight text-stone-900">
-              Hydra-Restore <span className="font-serif italic font-normal">Bio-Lotion</span>
+              The Hydra-Restore Vessel
             </h2>
+            <p className="text-xs sm:text-sm md:text-base text-stone-600 font-light leading-relaxed">
+              Formulated in absolute harmony with natural skin biology.
+            </p>
           </div>
-          <p className="mt-3 md:mt-0 text-stone-600 text-xs sm:text-sm max-w-md font-light leading-relaxed">
-            Bridging Seoul bio-cellular science with sensory ritual. Each measure works in absolute harmony with the natural rhythm of human skin biology.
-          </p>
-        </div>
 
-        {/* Multi-Angle Interactive Gallery Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-center">
-          {/* Main Display Flacon Card */}
-          <div className="lg:col-span-7 bg-white rounded-3xl p-4 sm:p-8 md:p-10 border border-stone-200/80 shadow-xl flex flex-col justify-between relative overflow-hidden group">
-            {/* Spec Bar */}
-            <div className="flex items-center justify-between border-b border-stone-100 pb-3 sm:pb-4 mb-3 sm:mb-4">
-              <span className="text-[10px] sm:text-[11px] tracking-widest uppercase text-stone-400 font-medium truncate pr-2">
-                PROTOTYPE STILL • {PROTOTYPE_IMAGES[activeImageIndex].caption}
-              </span>
-              <span className="bg-[#d08c81]/15 text-[#b56d62] text-[9px] sm:text-[10px] font-bold tracking-widest uppercase px-2.5 sm:px-3 py-1 rounded-full shrink-0">
-                150 ML / 5.1 FL. OZ
-              </span>
+          {/* Interactive Prototype Showcase Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            {/* Prototype Viewer (Left 7 Columns) */}
+            <div className="lg:col-span-7 bg-[#f5f2f0] p-4 sm:p-6 md:p-8 rounded-3xl border border-stone-200/80 shadow-sm relative group">
+              {/* Main Active Angle Frame */}
+              <div className="relative aspect-square sm:aspect-[4/3] w-full rounded-2xl overflow-hidden bg-white/70 shadow-inner flex items-center justify-center">
+                <Image
+                  src={PROTOTYPE_IMAGES[activeImageIndex].src}
+                  alt={PROTOTYPE_IMAGES[activeImageIndex].title}
+                  fill
+                  className="object-contain p-2 sm:p-4 transition-all duration-700 ease-out transform group-hover:scale-105"
+                  sizes="(max-width: 1024px) 100vw, 60vw"
+                  priority
+                />
+
+                {/* Touch Arrows for Easy Mobile Browsing */}
+                <button
+                  onClick={prevAngle}
+                  className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/80 backdrop-blur-md shadow-md border border-stone-200 flex items-center justify-center text-stone-800 hover:bg-white transition-all z-10"
+                  aria-label="Previous Angle"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+                <button
+                  onClick={nextAngle}
+                  className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/80 backdrop-blur-md shadow-md border border-stone-200 flex items-center justify-center text-stone-800 hover:bg-white transition-all z-10"
+                  aria-label="Next Angle"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              </div>
+
+              {/* Active Angle Description */}
+              <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-4">
+                <div>
+                  <h3 className="text-base sm:text-lg font-medium text-stone-900">
+                    {PROTOTYPE_IMAGES[activeImageIndex].title}
+                  </h3>
+                  <p className="text-xs text-stone-500 font-light mt-0.5">
+                    {PROTOTYPE_IMAGES[activeImageIndex].subtitle}
+                  </p>
+                </div>
+
+                <div className="text-[10px] sm:text-[11px] font-bold text-stone-400 uppercase tracking-widest shrink-0">
+                  Angle 0{activeImageIndex + 1} of 04
+                </div>
+              </div>
+
+              {/* Thumbnail Switcher Matrix (Optimized Touch Targets) */}
+              <div className="grid grid-cols-4 gap-2 sm:gap-3 mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-stone-100">
+                {PROTOTYPE_IMAGES.map((img, idx) => (
+                  <button
+                    key={img.id}
+                    onClick={() => setActiveImageIndex(idx)}
+                    className={`relative aspect-square rounded-xl overflow-hidden border-2 transition-all p-1 bg-[#fbfaf9] min-h-[44px] min-w-[44px] ${
+                      activeImageIndex === idx
+                        ? "border-[#d08c81] shadow-md scale-105 ring-2 ring-[#d08c81]/25"
+                        : "border-transparent opacity-60 hover:opacity-100"
+                    }`}
+                    aria-label={`View ${img.caption}`}
+                  >
+                    <Image
+                      src={img.src}
+                      alt={img.caption}
+                      fill
+                      className="object-contain p-0.5 sm:p-1"
+                    />
+                  </button>
+                ))}
+              </div>
             </div>
 
-            {/* High-Resolution Main Angle View with Mobile Touch Arrows */}
-            <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] bg-[#fbfaf9] rounded-2xl overflow-hidden flex items-center justify-center border border-stone-100">
-              <Image
-                key={activeImageIndex}
-                src={PROTOTYPE_IMAGES[activeImageIndex].src}
-                alt={PROTOTYPE_IMAGES[activeImageIndex].title}
-                fill
-                className="object-contain p-2 sm:p-4 transition-all duration-700 ease-out transform group-hover:scale-105"
-                sizes="(max-width: 1024px) 100vw, 60vw"
-                priority
-              />
-
-              {/* Touch Arrows for Easy Mobile Browsing */}
-              <button
-                onClick={prevAngle}
-                className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/80 backdrop-blur-md shadow-md border border-stone-200 flex items-center justify-center text-stone-800 hover:bg-white transition-all z-10"
-                aria-label="Previous Angle"
-              >
-                <ChevronLeft className="w-4 h-4" />
-              </button>
-              <button
-                onClick={nextAngle}
-                className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/80 backdrop-blur-md shadow-md border border-stone-200 flex items-center justify-center text-stone-800 hover:bg-white transition-all z-10"
-                aria-label="Next Angle"
-              >
-                <ChevronRight className="w-4 h-4" />
-              </button>
-            </div>
-
-            {/* Active Angle Description */}
-            <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-4">
-              <div>
-                <h3 className="text-base sm:text-lg font-medium text-stone-900">
-                  {PROTOTYPE_IMAGES[activeImageIndex].title}
+            {/* Product Profile & Acquisition Panel (Right Column) */}
+            <div className="lg:col-span-5 space-y-5 sm:space-y-6">
+              <div className="space-y-2.5 sm:space-y-3">
+                <div className="inline-flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs font-semibold tracking-widest uppercase text-[#d08c81]">
+                  <Sparkles className="w-4 h-4" />
+                  <span>Proprietary Micro-Emulsion</span>
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-light text-stone-900 tracking-tight leading-snug">
+                  The Fluidity of Water. The Nourishment of Cream.
                 </h3>
-                <p className="text-xs text-stone-500 font-light mt-0.5">
-                  {PROTOTYPE_IMAGES[activeImageIndex].subtitle}
+                <p className="text-xs sm:text-sm text-stone-600 font-light leading-relaxed">
+                  A fast-absorbing micro-emulsion that melts into the skin in seconds, delivering deep nourishment with a weightless, velvet finish.
                 </p>
               </div>
 
-              <div className="text-[10px] sm:text-[11px] font-bold text-stone-400 uppercase tracking-widest shrink-0">
-                Angle 0{activeImageIndex + 1} of 04
-              </div>
-            </div>
-
-            {/* Thumbnail Switcher Matrix (Optimized Touch Targets) */}
-            <div className="grid grid-cols-4 gap-2 sm:gap-3 mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-stone-100">
-              {PROTOTYPE_IMAGES.map((img, idx) => (
-                <button
-                  key={img.id}
-                  onClick={() => setActiveImageIndex(idx)}
-                  className={`relative aspect-square rounded-xl overflow-hidden border-2 transition-all p-1 bg-[#fbfaf9] min-h-[44px] min-w-[44px] ${
-                    activeImageIndex === idx
-                      ? "border-[#d08c81] shadow-md scale-105 ring-2 ring-[#d08c81]/25"
-                      : "border-transparent opacity-60 hover:opacity-100"
-                  }`}
-                  aria-label={`View ${img.caption}`}
-                >
-                  <Image
-                    src={img.src}
-                    alt={img.caption}
-                    fill
-                    className="object-contain p-0.5 sm:p-1"
-                  />
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Product Profile & Acquisition Panel (Right Column) */}
-          <div className="lg:col-span-5 space-y-5 sm:space-y-6">
-            <div className="space-y-2.5 sm:space-y-3">
-              <div className="inline-flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs font-semibold tracking-widest uppercase text-[#d08c81]">
-                <Sparkles className="w-4 h-4" />
-                <span>Proprietary Micro-Emulsion</span>
-              </div>
-              <h3 className="text-2xl sm:text-3xl font-light text-stone-900 tracking-tight leading-snug">
-                The Fluidity of Water, The Sustained Nourishment of Rich Cream
-              </h3>
-              <p className="text-xs sm:text-sm text-stone-600 font-light leading-relaxed">
-                Specifically calibrated for discerning skin. Hydra-Restore Bio-Lotion yields an imperceptible micro-milky consistency that permeates the lipid matrix in fractions of a second, leaving a radiant, weightless velvet veil that lasts from dawn until dusk.
-              </p>
-            </div>
-
-            {/* Refined Specifications (Responsive Grid) */}
-            <div className="grid grid-cols-2 gap-2.5 sm:gap-3 pt-1">
-              <div className="bg-white p-3.5 sm:p-4 rounded-xl border border-stone-200">
-                <span className="text-[9px] sm:text-[10px] tracking-wider uppercase text-stone-400 block">pH Equilibrium</span>
-                <span className="text-xs sm:text-sm font-semibold text-stone-900">5.5 (Biomimetic)</span>
-              </div>
-              <div className="bg-white p-3.5 sm:p-4 rounded-xl border border-stone-200">
-                <span className="text-[9px] sm:text-[10px] tracking-wider uppercase text-stone-400 block">Cutaneous Profile</span>
-                <span className="text-xs sm:text-sm font-semibold text-stone-900">Universal Affinity</span>
-              </div>
-              <div className="bg-white p-3.5 sm:p-4 rounded-xl border border-stone-200">
-                <span className="text-[9px] sm:text-[10px] tracking-wider uppercase text-stone-400 block">Olfactory Character</span>
-                <span className="text-xs sm:text-sm font-semibold text-stone-900">100% Fragrance-Free</span>
-              </div>
-              <div className="bg-white p-3.5 sm:p-4 rounded-xl border border-stone-200">
-                <span className="text-[9px] sm:text-[10px] tracking-wider uppercase text-stone-400 block">Ethics & Standards</span>
-                <span className="text-xs sm:text-sm font-semibold text-stone-900">100% Vegan Certified</span>
-              </div>
-            </div>
-
-            {/* Acquisition Box */}
-            <div className="bg-[#f5f2f0] p-5 sm:p-6 rounded-2xl border border-stone-200/80 space-y-4">
-              <div className="flex flex-col xs:flex-row items-start xs:items-baseline justify-between gap-2">
-                <div>
-                  <span className="text-[11px] text-stone-500 block uppercase tracking-wider">Official Offering</span>
-                  <span className="text-2xl sm:text-3xl font-bold text-stone-900">$58.00 USD</span>
+              {/* Refined Specifications (Responsive Grid) */}
+              <div className="grid grid-cols-2 gap-2.5 sm:gap-3 pt-1">
+                <div className="bg-white p-3.5 sm:p-4 rounded-xl border border-stone-200">
+                  <span className="text-[9px] sm:text-[10px] tracking-wider uppercase text-stone-400 block">pH Level</span>
+                  <span className="text-xs sm:text-sm font-semibold text-stone-900">5.5 (Skin-Neutral)</span>
                 </div>
-                <span className="text-[10px] sm:text-[11px] text-emerald-800 font-semibold bg-emerald-100/70 px-2.5 sm:px-3 py-1 rounded-full border border-emerald-300">
-                  Allocated Batch • Ready for Dispatch
-                </span>
+                <div className="bg-white p-3.5 sm:p-4 rounded-xl border border-stone-200">
+                  <span className="text-[9px] sm:text-[10px] tracking-wider uppercase text-stone-400 block">Skin Type</span>
+                  <span className="text-xs sm:text-sm font-semibold text-stone-900">All Skin Types</span>
+                </div>
+                <div className="bg-white p-3.5 sm:p-4 rounded-xl border border-stone-200">
+                  <span className="text-[9px] sm:text-[10px] tracking-wider uppercase text-stone-400 block">Formula</span>
+                  <span className="text-xs sm:text-sm font-semibold text-stone-900">100% Fragrance-Free</span>
+                </div>
+                <div className="bg-white p-3.5 sm:p-4 rounded-xl border border-stone-200">
+                  <span className="text-[9px] sm:text-[10px] tracking-wider uppercase text-stone-400 block">Standard</span>
+                  <span className="text-xs sm:text-sm font-semibold text-stone-900">100% Vegan Certified</span>
+                </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-3 pt-1">
-                <a
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 bg-[#1c1a19] hover:bg-[#d08c81] hover:text-stone-950 text-white font-semibold py-3.5 sm:py-4 px-5 sm:px-6 rounded-full text-xs tracking-[0.18em] uppercase text-center transition-all shadow-md flex items-center justify-center gap-2"
-                >
-                  <MessageCircle className="w-4 h-4 text-[#d08c81]" />
-                  <span>Acquire via Concierge</span>
-                </a>
-                <a
-                  href="#concierge"
-                  className="bg-white hover:bg-stone-100 text-stone-800 font-medium py-3.5 sm:py-4 px-5 sm:px-6 rounded-full text-xs tracking-wider uppercase text-center transition-all border border-stone-300"
-                >
-                  Direct Inquiry
-                </a>
+              {/* Acquisition Box */}
+              <div className="bg-[#f5f2f0] p-5 sm:p-6 rounded-2xl border border-stone-200/80 space-y-4">
+                <div className="flex flex-col xs:flex-row items-start xs:items-baseline justify-between gap-2">
+                  <div>
+                    <span className="text-[11px] text-stone-500 block uppercase tracking-wider">Official Offering</span>
+                    <span className="text-2xl sm:text-3xl font-bold text-stone-900">Rp 349.000</span>
+                  </div>
+                  <span className="text-[10px] sm:text-[11px] text-emerald-800 font-semibold bg-emerald-100/70 px-2.5 sm:px-3 py-1 rounded-full border border-emerald-300">
+                    Allocated Batch • Ready for Dispatch
+                  </span>
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-3 pt-1">
+                  <a
+                    href={whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 bg-[#1c1a19] hover:bg-[#d08c81] hover:text-stone-950 text-white font-semibold py-3.5 sm:py-4 px-5 sm:px-6 rounded-full text-xs tracking-[0.18em] uppercase text-center transition-all shadow-md flex items-center justify-center gap-2"
+                  >
+                    <MessageCircle className="w-4 h-4 text-[#d08c81]" />
+                    <span>Acquire via Concierge</span>
+                  </a>
+                  <a
+                    href="#concierge"
+                    className="bg-white hover:bg-stone-100 text-stone-800 font-medium py-3.5 sm:py-4 px-5 sm:px-6 rounded-full text-xs tracking-wider uppercase text-center transition-all border border-stone-300"
+                  >
+                    Direct Inquiry
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -665,41 +647,38 @@ export default function LuxuryResponsiveLanding() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto space-y-2.5 sm:space-y-3 mb-12 sm:mb-16">
             <span className="text-[10px] sm:text-[11px] tracking-[0.3em] uppercase text-[#d08c81] font-semibold">
-              Proven Clinical Efficacy
+              Clinical Performance
             </span>
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-light tracking-tight text-stone-900">
-              Why Discerning Skin Demands It
+              Engineered for Proven Results
             </h2>
-            <p className="text-stone-600 text-xs sm:text-sm font-light">
-              Architectured to address the four critical vulnerabilities of contemporary urban living.
+            <p className="text-xs sm:text-sm text-stone-600 font-light leading-relaxed">
+              Formulated without compromise. Validated through clinical evaluation.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
-            {BENEFITS.map((b, idx) => {
-              const IconComp = b.icon;
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+            {BENEFITS.map((b, i) => {
+              const Icon = b.icon;
               return (
                 <div
-                  key={idx}
-                  className="bg-white rounded-2xl p-6 sm:p-7 md:p-8 border border-stone-200/90 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between"
+                  key={i}
+                  className="bg-white p-6 sm:p-7 rounded-2xl border border-stone-200/80 shadow-sm hover:shadow-md hover:border-[#d08c81]/40 transition-all flex flex-col justify-between group"
                 >
-                  <div className="space-y-3.5 sm:space-y-4">
-                    <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-[#f5f2f0] flex items-center justify-center text-[#d08c81] border border-stone-100">
-                      <IconComp className="w-5 h-5 sm:w-6 sm:h-6" />
+                  <div>
+                    <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-[#f5f2f0] text-stone-900 group-hover:bg-[#d08c81]/15 group-hover:text-[#d08c81] flex items-center justify-center mb-4 sm:mb-5 transition-colors">
+                      <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
                     <h3 className="text-base sm:text-lg font-medium text-stone-900 leading-snug">
                       {b.title}
                     </h3>
-                    <p className="text-xs text-stone-600 font-light leading-relaxed">
+                    <p className="text-xs text-stone-600 font-light leading-relaxed mt-2 sm:mt-2.5">
                       {b.desc}
                     </p>
                   </div>
-
-                  <div className="pt-5 sm:pt-6 mt-5 sm:mt-6 border-t border-stone-100 flex items-center justify-between text-xs">
-                    <span className="text-[#b56d62] font-semibold tracking-wider text-[11px] sm:text-xs">
-                      {b.highlight}
-                    </span>
-                    <span className="text-stone-300 font-semibold tracking-wider">0{idx + 1}</span>
+                  <div className="pt-4 sm:pt-5 mt-4 sm:mt-5 border-t border-stone-100 flex items-center justify-between text-[11px] font-semibold text-[#d08c81]">
+                    <span>{b.highlight}</span>
+                    <span className="text-stone-300">→</span>
                   </div>
                 </div>
               );
@@ -708,33 +687,33 @@ export default function LuxuryResponsiveLanding() {
         </div>
       </section>
 
-      {/* ----------------- 5. INGREDIENTS & CLEAN SCIENCE ----------------- */}
+      {/* ----------------- 5. KEY INGREDIENTS & SCIENTIFIC PROFILE ----------------- */}
       <section id="science" className="py-16 sm:py-20 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mb-12 sm:mb-16 space-y-2.5 sm:space-y-3">
-          <span className="text-[11px] sm:text-xs tracking-[0.25em] uppercase text-[#d08c81] font-semibold">
-            Formula Transparence & Purity
+        <div className="text-center max-w-2xl mx-auto space-y-2.5 sm:space-y-3 mb-12 sm:mb-16">
+          <span className="text-[10px] sm:text-[11px] tracking-[0.3em] uppercase text-[#d08c81] font-semibold">
+            Clean Formulation
           </span>
           <h2 className="text-2xl sm:text-4xl md:text-5xl font-light tracking-tight text-stone-900">
-            The Potency of Bio-Identical <span className="font-serif italic font-normal">Active Science</span>
+            Active Ingredient Architecture
           </h2>
-          <p className="text-stone-600 text-xs sm:text-sm font-light leading-relaxed">
-            Zero gratuitous fillers. Every botanical metabolite, ceramide, and peptide is chosen solely for its peer-reviewed efficacy in reconditioning the cutaneous matrix.
+          <p className="text-xs sm:text-sm text-stone-600 font-light leading-relaxed">
+            Four biocompatible actives selected for maximum cutaneous compatibility.
           </p>
         </div>
 
-        {/* Ingredients Matrix */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
-          {INGREDIENTS.map((item, idx) => (
+        {/* 2x2 Ingredient Matrix */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+          {INGREDIENTS.map((item, i) => (
             <div
-              key={idx}
-              className="bg-white rounded-2xl p-6 sm:p-8 border border-stone-200 shadow-sm hover:border-[#d08c81]/40 transition-all flex flex-col justify-between"
+              key={i}
+              className="bg-white p-6 sm:p-8 rounded-2xl border border-stone-200/80 shadow-sm hover:border-[#d08c81]/50 transition-all flex flex-col justify-between"
             >
-              <div className="space-y-2.5 sm:space-y-3">
+              <div className="space-y-2 sm:space-y-2.5">
                 <div className="flex items-center justify-between">
-                  <span className="text-[9px] sm:text-[10px] font-bold tracking-widest uppercase text-[#d08c81] bg-[#d08c81]/10 px-2.5 sm:px-3 py-1 rounded-full">
+                  <span className="text-[10px] sm:text-[11px] font-semibold tracking-widest uppercase text-[#d08c81]">
                     {item.role}
                   </span>
-                  <span className="text-xs text-stone-400 font-semibold">0{idx + 1}</span>
+                  <span className="text-xs text-stone-400 font-mono">0{i + 1}</span>
                 </div>
                 <h3 className="text-lg sm:text-xl font-medium text-stone-900">{item.name}</h3>
                 <span className="text-[11px] sm:text-xs text-stone-500 font-medium block -mt-1">
@@ -747,13 +726,13 @@ export default function LuxuryResponsiveLanding() {
 
               <div className="pt-4 mt-5 sm:mt-6 border-t border-stone-100 flex items-center text-[10px] sm:text-[11px] text-stone-500">
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#d08c81] mr-1.5 shrink-0" />
-                <span>Clinically Evaluated on Reactive & Stressed Skin</span>
+                <span>Clinically Evaluated on Sensitive Skin</span>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Ultra-Clean Standard Banners (Responsive 2x2 Grid on Mobile, Flex on Desktop) */}
+        {/* Ultra-Clean Standard Banners */}
         <div className="mt-10 sm:mt-12 bg-[#1c1a19] text-[#f5f2f0] rounded-2xl p-6 sm:p-8 grid grid-cols-2 md:flex md:flex-row items-center justify-around gap-6 text-center">
           <div>
             <div className="text-xs sm:text-sm font-semibold text-white">0% Parabens</div>
@@ -762,7 +741,7 @@ export default function LuxuryResponsiveLanding() {
           <div className="hidden md:block w-px h-8 bg-white/10" />
           <div>
             <div className="text-xs sm:text-sm font-semibold text-white">0% Fragrance</div>
-            <div className="text-[9px] sm:text-[10px] text-stone-400 uppercase tracking-widest mt-0.5">Zero Olfactive Additives</div>
+            <div className="text-[9px] sm:text-[10px] text-stone-400 uppercase tracking-widest mt-0.5">Non-Irritating</div>
           </div>
           <div className="hidden md:block w-px h-8 bg-white/10" />
           <div>
@@ -782,10 +761,10 @@ export default function LuxuryResponsiveLanding() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-10 sm:space-y-12">
           <div className="space-y-2">
             <span className="text-[11px] sm:text-xs tracking-[0.25em] uppercase text-[#d08c81] font-semibold">
-              The Daily Application
+              The Daily Ritual
             </span>
             <h2 className="text-2xl sm:text-3xl font-light text-stone-900">
-              Three Steps Toward Optimum Cutaneous Equilibrium
+              Three Simple Steps to Balanced Skin
             </h2>
           </div>
 
@@ -796,7 +775,7 @@ export default function LuxuryResponsiveLanding() {
               </span>
               <h3 className="text-base font-medium text-stone-900">Purify</h3>
               <p className="text-xs text-stone-600 font-light leading-relaxed">
-                Cleanse the face with a neutral, pH-equilibrated wash morning and evening. Pat gently dry with clean linen.
+                Cleanse face with lukewarm water and a gentle wash. Pat dry with a clean towel.
               </p>
             </div>
 
@@ -806,7 +785,7 @@ export default function LuxuryResponsiveLanding() {
               </span>
               <h3 className="text-base font-medium text-stone-900">Dispense</h3>
               <p className="text-xs text-stone-600 font-light leading-relaxed">
-                Release one to two measured doses of Hydra-Restore Bio-Lotion into the cup of warmed palms.
+                Dispense one to two measured pumps into the palms of your clean hands.
               </p>
             </div>
 
@@ -816,7 +795,7 @@ export default function LuxuryResponsiveLanding() {
               </span>
               <h3 className="text-base font-medium text-stone-900">Press & Absorb</h3>
               <p className="text-xs text-stone-600 font-light leading-relaxed">
-                Press with contemplative, gentle motions across face and throat until the micro-emulsion fully assimilates.
+                Gently press across face and neck until the micro-emulsion fully absorbs.
               </p>
             </div>
           </div>
@@ -838,10 +817,10 @@ export default function LuxuryResponsiveLanding() {
                 </span>
                 <h2 className="text-2xl sm:text-4xl md:text-5xl font-light tracking-tight text-white leading-tight">
                   Bespoke Advisory & <br />
-                  <span className="font-serif italic font-normal text-[#e8c5c1]">Direct Acquisition</span>
+                  <span className="font-serif italic font-normal text-[#e8c5c1]">Direct Orders</span>
                 </h2>
                 <p className="text-stone-400 text-xs sm:text-sm font-light leading-relaxed max-w-lg">
-                  Whether you require personalized guidance on integrating Hydra-Restore Bio-Lotion into an existing clinical regimen, or wish to place a direct allocation order, our private client advisors remain at your service.
+                  For personalized consultations or direct allocation orders, our client advisors are ready to assist you.
                 </p>
               </div>
 
@@ -890,7 +869,7 @@ export default function LuxuryResponsiveLanding() {
                         concierge@stembeauty.com
                       </h4>
                       <p className="text-[11px] sm:text-xs text-stone-400 font-light truncate">
-                        Press, institutional partnerships, and global dispatch
+                        Orders, press inquiries, and international dispatch
                       </p>
                     </div>
                   </div>
@@ -900,7 +879,7 @@ export default function LuxuryResponsiveLanding() {
                 {/* Concierge Hours */}
                 <div className="flex items-center gap-3 p-3.5 sm:p-4 bg-white/5 rounded-xl border border-white/10 text-[11px] sm:text-xs text-stone-400">
                   <Clock className="w-4 h-4 text-[#d08c81] shrink-0" />
-                  <span>Advisory Hours: Monday – Saturday (08:00 – 20:00 GMT+7). Dispatched from Jakarta Hub.</span>
+                  <span>Advisory Hours: Monday – Saturday (08:00 – 20:00). Express Global Dispatch.</span>
                 </div>
               </div>
             </div>
@@ -910,7 +889,7 @@ export default function LuxuryResponsiveLanding() {
               <div className="space-y-1.5 sm:space-y-2 mb-5 sm:mb-6">
                 <h3 className="text-lg sm:text-xl font-medium text-white">Transmit an Inquiry</h3>
                 <p className="text-xs text-stone-400 font-light">
-                  Complete the confidential dispatch form below. Our private advisor will attend to your request promptly.
+                  Complete the form below. An advisor will attend to your request promptly.
                 </p>
               </div>
 
@@ -919,9 +898,9 @@ export default function LuxuryResponsiveLanding() {
                   <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto">
                     <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
-                  <h4 className="text-base sm:text-lg font-medium text-white">Your Transmission is Received</h4>
+                  <h4 className="text-base sm:text-lg font-medium text-white">Transmission Received</h4>
                   <p className="text-xs text-stone-300 font-light leading-relaxed">
-                    Thank you for contacting Beauty In Stem. A dedicated client advisor will review your profile and respond via your preferred contact channel shortly.
+                    Thank you. A dedicated client advisor will review your message and contact you promptly.
                   </p>
                   <button
                     onClick={() => {
@@ -953,7 +932,7 @@ export default function LuxuryResponsiveLanding() {
 
                   <div>
                     <label className="block text-[11px] sm:text-xs font-medium text-stone-300 uppercase tracking-wider mb-1.5">
-                      Direct WhatsApp or Email Address *
+                      WhatsApp or Email Address *
                     </label>
                     <input
                       type="text"
@@ -967,11 +946,11 @@ export default function LuxuryResponsiveLanding() {
 
                   <div>
                     <label className="block text-[11px] sm:text-xs font-medium text-stone-300 uppercase tracking-wider mb-1.5">
-                      Cutaneous Profile or Order Request
+                      Skin Concerns or Order Allocation
                     </label>
                     <textarea
                       rows={3}
-                      placeholder="Please note your skin type, specific sensitivities, or order allocation inquiries..."
+                      placeholder="Please note your skin type, specific sensitivities, or order requests..."
                       value={clientMessage}
                       onChange={(e) => setClientMessage(e.target.value)}
                       className="w-full bg-white/5 border border-white/15 rounded-xl px-4 py-3 sm:py-3.5 text-base sm:text-xs text-white placeholder-stone-500 focus:outline-none focus:border-[#d08c81] transition-colors resize-none"
@@ -993,7 +972,7 @@ export default function LuxuryResponsiveLanding() {
           {/* Understated Luxury Editorial Footer */}
           <div className="pt-12 sm:pt-16 mt-12 sm:mt-16 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-[11px] sm:text-xs text-stone-500 font-light gap-4 text-center sm:text-left">
             <div>
-              © 2026 BEAUTY IN STEM. All rights reserved. Advanced Korean Cellular Science.
+              © 2026 BEAUTY IN STEM. All rights reserved. Advanced Cellular Science.
             </div>
             <div className="flex flex-wrap items-center justify-center space-x-4 sm:space-x-6 text-[10px] sm:text-[11px] tracking-wider uppercase text-stone-400">
               <a href="#" className="hover:text-white transition-colors">Instagram</a>
@@ -1002,7 +981,7 @@ export default function LuxuryResponsiveLanding() {
               <span>•</span>
               <a href="#" className="hover:text-white transition-colors">Editorial Journal</a>
               <span>•</span>
-              <a href="#" className="hover:text-white transition-colors">Confidentiality</a>
+              <a href="#" className="hover:text-white transition-colors">Privacy</a>
             </div>
           </div>
         </div>
