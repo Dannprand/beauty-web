@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import Image from "next/image";
 import {
   Volume2,
@@ -14,17 +14,11 @@ import {
   Mail,
   Clock,
   ExternalLink,
-  Menu,
   X,
   ChevronLeft,
   ChevronRight,
-  ShieldCheck,
-  Droplets,
-  Sparkles,
   Check,
-  Send,
   ArrowRight,
-  Maximize2,
 } from "lucide-react";
 
 // Prototype images provided by user
@@ -32,39 +26,39 @@ const PROTOTYPE_IMAGES = [
   {
     id: "angle-1",
     src: "/assets/prototype%20produk%20lotion.jpg",
-    title: "Architectural Vessel",
+    title: "The Architectural Vessel",
     spec: "UV-Protective Ceramic Finish",
-    caption: "Studio Front View",
+    caption: "Studio Front View // Isolated On Sculpted Stone",
   },
   {
     id: "angle-2",
     src: "/assets/prototype%20produk%20lotion%202.jpg",
     title: "Hermetic Micro-Pump",
-    spec: "Airless Piston Dispenser",
-    caption: "Actuator Precision",
+    spec: "Airless Piston Actuator",
+    caption: "Nitrogen Purity Lock // Micro-Dose Dispenser",
   },
   {
     id: "angle-3",
     src: "/assets/prototype%20produk%20lotion%203.jpg",
-    title: "Micro-Emulsion Texture",
+    title: "Whipped Micro-Emulsion",
     spec: "Sub-Micron Lipid Spheres",
-    caption: "Formulation Nuance",
+    caption: "Formulation Nuance // Viscosity 5200 CPS",
   },
   {
     id: "angle-4",
     src: "/assets/prototype%20produk%20lotion%204.jpg",
-    title: "Curated Regimen",
-    spec: "Minimalist Vanity Placement",
-    caption: "Still Life Context",
+    title: "Curated Regimen Placement",
+    spec: "Minimalist Tactile Sculpture",
+    caption: "Vanity Still Life // Daily Skin Fitness Context",
   },
 ];
 
-// Cinematic Video Reels (Featuring User's 3 Videos in Spyker Theatre Layout)
+// Cinematic Video Reels (Spyker-Inspired Cinema Theatre)
 const SENSORY_REELS = [
   {
     id: "reel-1",
     title: "Formulation Craft & Whipped Texture",
-    subtitle: "High-density micro-emulsion presented in glass flacon under studio illumination.",
+    subtitle: "High-density micro-emulsion presented in glass flacon under controlled studio illumination.",
     src: "/assets/video%20body%202.mp4",
     badge: "REEL 01 // 4K UHD",
     duration: "52S",
@@ -73,7 +67,7 @@ const SENSORY_REELS = [
   {
     id: "reel-2",
     title: "Epidermal Contact & Assimilation",
-    subtitle: "Direct skin application demonstrating rapid sub-micron absorption with zero residue.",
+    subtitle: "Direct skin application demonstrating rapid sub-micron absorption with zero surface tackiness.",
     src: "/assets/video%20body%203.mp4",
     badge: "REEL 02 // HD MOTION",
     duration: "8.7S",
@@ -82,7 +76,7 @@ const SENSORY_REELS = [
   {
     id: "reel-3",
     title: "Atmospheric Essence & Fluidity",
-    subtitle: "The tactile and sensory motion of Beauty Lotion conditioning the dermal matrix.",
+    subtitle: "The tactile and sensory motion of Beauty Lotion conditioning the living cutaneous mantle.",
     src: "/assets/video%20body.mp4",
     badge: "REEL 03 // AMBIENT",
     duration: "CINEMATIC",
@@ -90,21 +84,21 @@ const SENSORY_REELS = [
   },
 ];
 
-// Key Ingredients & Scientific Profile (Non-repetitive, high-precision)
+// Key Ingredients (Scientific Architecture)
 const INGREDIENTS = [
   {
     code: "ACT // 01",
     name: "Bio-Identical Ceramide Triad",
     formula: "Ceramides NP, AP, EOP",
     category: "Lipid Matrix Reconstruction",
-    detail: "Identical to human stratum corneum lipids; seamlessly seals microscopic barrier fractures.",
+    detail: "Physiologically identical to human stratum corneum lipids; seamlessly seals microscopic barrier fractures.",
   },
   {
     code: "ACT // 02",
     name: "Multi-Molecular Hyaluronate",
     formula: "5 Distinct Molecular Weights",
     category: "Deep Stratum Hydration",
-    detail: "Low fractions reach deeper reservoirs while high polymers form a breathable moisture barrier.",
+    detail: "Low-weight fractions reach deeper dermal reservoirs while high polymers form a breathable moisture shield.",
   },
   {
     code: "ACT // 03",
@@ -118,7 +112,7 @@ const INGREDIENTS = [
     name: "Centella Asiatica & Niacinamide 2%",
     formula: "Phyto-Centella + Vitamin B3 Complex",
     category: "Cutaneous Equilibrium & Calming",
-    detail: "Attenuates inflammatory cytokines and refines pore micro-texture into a calm, supple finish.",
+    detail: "Downregulates inflammatory cytokine cascades and refines pore micro-texture into a calm, silky finish.",
   },
 ];
 
@@ -126,7 +120,7 @@ export default function LuxuryResponsiveLanding() {
   // Gallery active index
   const [activeImageIndex, setActiveImageIndex] = useState(0);
 
-  // Active Cinema Video Reel in Sensory section
+  // Active Cinema Video Reel
   const [activeReelIndex, setActiveReelIndex] = useState(0);
   const cinemaVideoRef = useRef<HTMLVideoElement | null>(null);
   const [isCinemaPlaying, setIsCinemaPlaying] = useState(true);
@@ -136,8 +130,8 @@ export default function LuxuryResponsiveLanding() {
   const [isHeroMuted, setIsHeroMuted] = useState(true);
   const heroVideoRef = useRef<HTMLVideoElement | null>(null);
 
-  // Mobile navigation drawer toggle
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  // Fullscreen Editorial Navigation Drawer (Spyker 50/50 Style)
+  const [isNavDrawerOpen, setIsNavDrawerOpen] = useState(false);
 
   // Quick Order & Allocation Modal state
   const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
@@ -186,7 +180,7 @@ export default function LuxuryResponsiveLanding() {
     }
   };
 
-  // When switching cinema reel, auto-play with current mute state
+  // Switch cinema reel
   const handleSelectReel = (index: number) => {
     setActiveReelIndex(index);
     setIsCinemaPlaying(true);
@@ -204,7 +198,7 @@ export default function LuxuryResponsiveLanding() {
   // Smooth scroll
   const scrollToSection = (e: React.MouseEvent, id: string) => {
     e.preventDefault();
-    setIsMobileMenuOpen(false);
+    setIsNavDrawerOpen(false);
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
@@ -249,77 +243,36 @@ export default function LuxuryResponsiveLanding() {
   const whatsappOrderUrl = `https://wa.me/${whatsappNumber}?text=${whatsappOrderText}`;
 
   return (
-    <div id="top" className="relative min-h-screen bg-[#070707] text-[#f4f4f4] antialiased selection:bg-[#d08c81]/30 selection:text-white">
-      {/* ----------------- SPYKER-INSPIRED TELEMETRY TICKER ----------------- */}
-      <div className="bg-[#0c0c0c] border-b border-white/10 text-[9px] sm:text-[10px] tracking-[0.25em] sm:tracking-[0.3em] uppercase py-2 px-4 font-mono text-stone-400 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#d08c81] animate-ping" />
-          <span className="text-stone-300 font-sans tracking-[0.2em]">CELLULAR SKIN FITNESS</span>
-        </div>
-        <div className="hidden md:flex items-center gap-6 text-[9px] text-stone-400">
-          <span>SPEC // BIOMIMETIC FORMULATION</span>
-          <span>•</span>
-          <span>150 ML // 5.1 FL. OZ</span>
-          <span>•</span>
-          <span className="text-[#e8c5c1]">GLOBAL EXPRESS ALLOCATION</span>
-        </div>
-        <div className="text-[9px] text-[#e8c5c1] font-sans tracking-widest font-semibold">
-          BATCH N° 01 / READY
-        </div>
-      </div>
+    <div id="top" className="relative min-h-screen bg-[#070707] text-[#111111] antialiased selection:bg-[#d08c81]/30 selection:text-white">
+      {/* ----------------- SPYKER-STYLE MINIMALIST FLOATING HEADER ----------------- */}
+      <header className="fixed top-0 inset-x-0 z-40 transition-all duration-300">
+        <div className="w-full max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12 h-20 sm:h-24 grid grid-cols-[1fr_auto_1fr] items-center">
+          {/* Left: 2-Line Minimalist Menu Trigger (Spyker Iconic Hamburger) */}
+          <div className="flex items-center">
+            <button
+              onClick={() => setIsNavDrawerOpen(true)}
+              className="flex items-center gap-3 group cursor-pointer p-2 -ml-2"
+              aria-label="Open Navigation Menu"
+            >
+              <div className="w-6 flex flex-col justify-center space-y-1.5">
+                <span className="block h-[1.5px] w-6 bg-white transition-transform group-hover:translate-x-1" />
+                <span className="block h-[1.5px] w-4 bg-white transition-all group-hover:w-6" />
+              </div>
+              <span className="hidden sm:inline font-mono text-[11px] tracking-[0.25em] uppercase text-white/80 group-hover:text-white">
+                Menu
+              </span>
+            </button>
+          </div>
 
-      {/* ----------------- SPYKER-INSPIRED MINIMALIST 3-WAY HEADER ----------------- */}
-      <header className="sticky top-0 z-40 w-full backdrop-blur-2xl bg-[#070707]/90 border-b border-white/10 transition-all">
-        <div className="w-full max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12 h-16 sm:h-20 grid grid-cols-2 lg:grid-cols-[1fr_auto_1fr] items-center">
-          {/* Left: Section Navigation Links */}
-          <nav className="hidden lg:flex items-center space-x-7 text-[11px] tracking-[0.22em] uppercase font-medium text-stone-400">
-            <a
-              href="#philosophy"
-              onClick={(e) => scrollToSection(e, "philosophy")}
-              className="hover:text-white transition-colors"
-            >
-              Philosophy
-            </a>
-            <a
-              href="#cinema"
-              onClick={(e) => scrollToSection(e, "cinema")}
-              className="hover:text-[#d08c81] transition-colors flex items-center gap-1.5 text-white"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-[#d08c81]" />
-              <span>Motion Cinema</span>
-            </a>
-            <a
-              href="#vessel"
-              onClick={(e) => scrollToSection(e, "vessel")}
-              className="hover:text-white transition-colors"
-            >
-              The Vessel
-            </a>
-            <a
-              href="#science"
-              onClick={(e) => scrollToSection(e, "science")}
-              className="hover:text-white transition-colors"
-            >
-              Actives
-            </a>
-            <a
-              href="#concierge"
-              onClick={(e) => scrollToSection(e, "concierge")}
-              className="hover:text-white transition-colors"
-            >
-              Concierge
-            </a>
-          </nav>
-
-          {/* Center: Bold Architectural Wordmark */}
-          <div className="flex items-center lg:justify-center">
+          {/* Center: Brand Wordmark */}
+          <div className="flex items-center justify-center">
             <a
               href="#top"
               onClick={(e) => scrollToSection(e, "top")}
-              className="flex flex-col select-none group cursor-pointer"
+              className="flex flex-col items-center select-none group cursor-pointer"
               aria-label="Beauty Lotion Brand Mark"
             >
-              <span className="font-sans text-lg sm:text-2xl md:text-3xl font-medium tracking-[0.3em] uppercase text-white group-hover:text-[#e8c5c1] transition-colors leading-none">
+              <span className="font-sans text-xl sm:text-2xl md:text-3xl font-medium tracking-[0.35em] uppercase text-white group-hover:text-[#e8c5c1] transition-colors leading-none">
                 BEAUTY LOTION
               </span>
               <span className="text-[8px] sm:text-[9px] tracking-[0.45em] uppercase text-[#d08c81] font-mono mt-1">
@@ -332,102 +285,127 @@ export default function LuxuryResponsiveLanding() {
           <div className="flex items-center justify-end space-x-3">
             <button
               onClick={() => setIsOrderModalOpen(true)}
-              className="rounded-[2px] bg-white text-black hover:bg-stone-200 text-[10px] sm:text-[11px] tracking-[0.22em] uppercase font-semibold px-4 sm:px-6 py-2 sm:py-2.5 transition-all flex items-center gap-2 cursor-pointer shadow-md"
+              className="rounded-[2px] bg-white text-black hover:bg-stone-200 text-[10px] sm:text-[11px] tracking-[0.22em] uppercase font-semibold px-4 sm:px-6 py-2.5 transition-all flex items-center gap-2 cursor-pointer shadow-lg"
             >
               <ShoppingBag className="w-3.5 h-3.5" />
-              <span>Acquire</span>
+              <span className="hidden xs:inline">Acquire</span>
             </button>
 
             <a
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:flex rounded-[2px] border border-white/20 hover:border-white/50 text-stone-300 hover:text-white text-[10px] sm:text-[11px] tracking-[0.2em] uppercase font-medium px-4 py-2 transition-all items-center gap-1.5"
+              className="hidden sm:flex rounded-[2px] border border-white/25 hover:border-white text-white text-[10px] sm:text-[11px] tracking-[0.2em] uppercase font-medium px-4 py-2.5 transition-all items-center gap-1.5 backdrop-blur-md bg-black/40"
             >
               <MessageCircle className="w-3.5 h-3.5 text-[#d08c81]" />
               <span>Desk</span>
             </a>
-
-            {/* Mobile Menu Hamburger */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 rounded-[2px] border border-white/20 text-white hover:bg-white/10"
-              aria-label="Toggle Navigation"
-            >
-              {isMobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
-            </button>
           </div>
         </div>
-
-        {/* Mobile Navigation Drawer */}
-        {isMobileMenuOpen && (
-          <div className="lg:hidden border-t border-white/10 bg-[#070707]/98 backdrop-blur-2xl px-6 py-6 space-y-4">
-            <nav className="flex flex-col space-y-3 text-xs tracking-[0.25em] uppercase font-medium font-mono text-stone-300">
-              <a
-                href="#philosophy"
-                onClick={(e) => scrollToSection(e, "philosophy")}
-                className="py-2.5 border-b border-white/5 hover:text-white"
-              >
-                01 // Philosophy
-              </a>
-              <a
-                href="#cinema"
-                onClick={(e) => scrollToSection(e, "cinema")}
-                className="py-2.5 border-b border-white/5 text-[#d08c81] flex items-center justify-between"
-              >
-                <span>02 // Motion Cinema</span>
-                <span className="text-[10px] text-white">REELS</span>
-              </a>
-              <a
-                href="#vessel"
-                onClick={(e) => scrollToSection(e, "vessel")}
-                className="py-2.5 border-b border-white/5 hover:text-white"
-              >
-                03 // The Vessel
-              </a>
-              <a
-                href="#science"
-                onClick={(e) => scrollToSection(e, "science")}
-                className="py-2.5 border-b border-white/5 hover:text-white"
-              >
-                04 // Actives (Science)
-              </a>
-              <a
-                href="#concierge"
-                onClick={(e) => scrollToSection(e, "concierge")}
-                className="py-2.5 hover:text-white flex items-center justify-between"
-              >
-                <span>05 // Concierge & Orders</span>
-                <span>→</span>
-              </a>
-            </nav>
-
-            <div className="pt-2 flex flex-col gap-2">
-              <button
-                onClick={() => {
-                  setIsMobileMenuOpen(false);
-                  setIsOrderModalOpen(true);
-                }}
-                className="w-full rounded-[2px] bg-white text-black font-semibold text-xs tracking-[0.2em] uppercase py-3 text-center"
-              >
-                Acquire Beauty Lotion (Rp 349.000)
-              </button>
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full rounded-[2px] border border-white/20 text-white font-medium text-xs tracking-[0.2em] uppercase py-3 text-center flex items-center justify-center gap-2"
-              >
-                <MessageCircle className="w-4 h-4 text-[#d08c81]" />
-                <span>Contact Private Concierge</span>
-              </a>
-            </div>
-          </div>
-        )}
       </header>
 
-      {/* ----------------- 1. FULL-BLEED CINEMATIC HERO (SPYKER CARS AESTHETIC) ----------------- */}
-      <section className="relative min-h-[92vh] sm:min-h-screen flex items-end justify-start overflow-hidden bg-black pb-12 sm:pb-20">
+      {/* ----------------- SPYKER-STYLE FULLSCREEN EDITORIAL NAV DRAWER (50/50 SPLIT) ----------------- */}
+      {isNavDrawerOpen && (
+        <div className="fixed inset-0 z-50 bg-white text-black flex flex-col justify-between animate-fadeIn overflow-y-auto">
+          {/* Top Bar of Drawer */}
+          <div className="w-full max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12 h-20 sm:h-24 grid grid-cols-[1fr_auto_1fr] items-center border-b border-[#e5e5e5]">
+            <button
+              onClick={() => setIsNavDrawerOpen(false)}
+              className="flex items-center gap-2 p-2 -ml-2 text-black hover:opacity-60 transition-opacity cursor-pointer"
+              aria-label="Close Navigation"
+            >
+              <X className="w-6 h-6 stroke-[1.5]" />
+              <span className="font-mono text-[11px] tracking-[0.25em] uppercase hidden sm:inline">Close</span>
+            </button>
+
+            <div className="text-center font-sans text-xl sm:text-2xl font-medium tracking-[0.35em] uppercase text-black">
+              BEAUTY LOTION
+            </div>
+
+            <div className="flex justify-end">
+              <button
+                onClick={() => {
+                  setIsNavDrawerOpen(false);
+                  setIsOrderModalOpen(true);
+                }}
+                className="rounded-[2px] bg-black text-white px-5 py-2 text-xs tracking-widest uppercase font-medium hover:bg-neutral-800 cursor-pointer"
+              >
+                Acquire (Rp 349.000)
+              </button>
+            </div>
+          </div>
+
+          {/* 50/50 Architectural Body */}
+          <div className="w-full max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12 py-10 sm:py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center flex-1">
+            {/* Left Column: Giant Monolithic Navigation Links */}
+            <nav className="lg:col-span-7 flex flex-col space-y-4 sm:space-y-6">
+              {[
+                { name: "Pure Formulation", target: "philosophy", num: "01" },
+                { name: "Motion Cinema Theatre", target: "cinema", num: "02" },
+                { name: "The Architectural Vessel", target: "vessel", num: "03" },
+                { name: "Active Bio-Actives", target: "science", num: "04" },
+                { name: "Private Client Concierge", target: "concierge", num: "05" },
+              ].map((item) => (
+                <a
+                  key={item.target}
+                  href={`#${item.target}`}
+                  onClick={(e) => scrollToSection(e, item.target)}
+                  className="group flex items-baseline justify-between py-2 border-b border-[#f0f0f0] transition-colors"
+                >
+                  <span className="text-3xl sm:text-5xl md:text-6xl font-medium tracking-tight uppercase text-black group-hover:text-[#d08c81] transition-colors">
+                    {item.name}
+                  </span>
+                  <span className="font-mono text-xs sm:text-sm text-neutral-400 group-hover:text-black">
+                    {item.num}
+                  </span>
+                </a>
+              ))}
+            </nav>
+
+            {/* Right Column: Macro Craftsmanship Editorial Photo */}
+            <div className="hidden lg:block lg:col-span-5 relative aspect-[4/5] w-full rounded-[2px] overflow-hidden bg-neutral-100 border border-[#e5e5e5]">
+              <Image
+                src="/assets/prototype%20produk%20lotion%203.jpg"
+                alt="Beauty Lotion Craftsmanship"
+                fill
+                className="object-cover"
+                priority
+              />
+              <div className="absolute bottom-4 left-4 right-4 p-3 bg-white/90 backdrop-blur-md text-[10px] font-mono tracking-widest uppercase text-black flex justify-between border border-[#e5e5e5]">
+                <span>CRAFT // SUB-MICRON EMULSION</span>
+                <span>EDITION 2026</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom Tabular Metadata Strip */}
+          <div className="w-full max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12 py-6 border-t border-[#e5e5e5] grid grid-cols-2 md:grid-cols-4 gap-4 text-xs font-mono text-neutral-500">
+            <div>
+              <span className="text-black uppercase block font-semibold mb-1">Direct Advisory</span>
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="hover:text-black">
+                +62 812-3456-7890
+              </a>
+            </div>
+            <div>
+              <span className="text-black uppercase block font-semibold mb-1">Electronic Desk</span>
+              <a href="mailto:concierge@beautylotion.com" className="hover:text-black">
+                concierge@beautylotion.com
+              </a>
+            </div>
+            <div>
+              <span className="text-black uppercase block font-semibold mb-1">Dispatch Logistics</span>
+              <span>Express Insured Global</span>
+            </div>
+            <div>
+              <span className="text-black uppercase block font-semibold mb-1">Formulation Standard</span>
+              <span>100% Vegan • 0% Fragrance</span>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ----------------- 1. FULL-BLEED 100VH CINEMATIC HERO (SPYKER DARK REALM) ----------------- */}
+      <section className="relative min-h-screen flex items-end justify-start overflow-hidden bg-black pb-14 sm:pb-20">
         {/* Full-bleed 100vw Video Canvas */}
         <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
           <video
@@ -437,20 +415,19 @@ export default function LuxuryResponsiveLanding() {
             muted={isHeroMuted}
             loop
             playsInline
-            className="w-full h-full object-cover brightness-[0.68] contrast-[1.12]"
+            className="w-full h-full object-cover brightness-[0.70] contrast-[1.15]"
           />
           {/* Subtle Spyker Vignette & Grid Lines */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#070707] via-transparent to-black/60" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.45)_100%)]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/60" />
         </div>
 
         {/* Telemetry Corner Accents */}
-        <div className="absolute top-8 left-4 sm:left-12 z-20 text-[10px] font-mono tracking-[0.25em] uppercase text-white/50 hidden sm:block">
-          <div>LAT // 05.5 pH BIOMIMETIC</div>
+        <div className="absolute top-28 left-4 sm:left-12 z-20 text-[10px] font-mono tracking-[0.25em] uppercase text-white/50 hidden sm:block">
+          <div>SPEC // 05.5 pH BIOMIMETIC</div>
           <div>SERIAL // BL-150-2026</div>
         </div>
 
-        <div className="absolute top-8 right-4 sm:right-12 z-20 hidden sm:block">
+        <div className="absolute top-28 right-4 sm:right-12 z-20 hidden sm:block">
           <button
             onClick={toggleHeroMute}
             className="rounded-[2px] px-3.5 py-1.5 bg-black/60 hover:bg-black/90 backdrop-blur-md border border-white/20 text-white text-[10px] font-mono tracking-widest uppercase transition-all flex items-center gap-2 cursor-pointer"
@@ -466,19 +443,19 @@ export default function LuxuryResponsiveLanding() {
 
         {/* Hero Narrative Overlay */}
         <div className="relative z-10 w-full max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12">
-          <div className="max-w-4xl space-y-4 sm:space-y-6">
+          <div className="max-w-4xl space-y-5 sm:space-y-6">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-[2px] bg-white/10 backdrop-blur-md border border-white/20 text-[#e8c5c1] text-[9px] sm:text-[10px] font-mono tracking-[0.3em] uppercase">
               <span className="w-1.5 h-1.5 rounded-full bg-[#d08c81]" />
               THE ARCHITECTURAL SKIN FORMULATION
             </div>
 
-            <h1 className="text-4xl xs:text-5xl sm:text-7xl md:text-8xl lg:text-[100px] font-medium text-white tracking-[-0.01em] uppercase leading-[0.9] [text-wrap:balance]">
+            <h1 className="text-4xl xs:text-5xl sm:text-7xl md:text-8xl lg:text-[100px] font-medium text-white tracking-[-0.01em] uppercase leading-[0.88] [text-wrap:balance]">
               ENGINEERED <br />
               <span className="font-serif italic font-normal text-[#f4eae6] tracking-normal">Skin</span> FITNESS
             </h1>
 
             <p className="text-stone-300 text-xs sm:text-sm md:text-base font-light leading-relaxed max-w-xl">
-              Beauty Lotion conditions the cutaneous lipid matrix. A sub-micron cellular micro-emulsion that trains skin to retain moisture, defend against environmental decay, and remain composed.
+              Beauty Lotion conditions the cutaneous lipid matrix. A sub-micron cellular micro-emulsion that trains skin to retain hydration, defend against environmental decay, and remain composed.
             </p>
 
             {/* Stark High-Contrast Action Buttons */}
@@ -508,7 +485,7 @@ export default function LuxuryResponsiveLanding() {
               onClick={(e) => scrollToSection(e, "philosophy")}
               className="flex items-center gap-2 mx-auto sm:mx-0 hover:text-white transition-colors cursor-pointer"
             >
-              <span>EXPLORE SPECIFICATION</span>
+              <span>EXPLORE ARCHITECTURE</span>
               <span className="text-[#d08c81]">↓</span>
             </button>
             <span className="hidden md:inline">150 ML • ALLOCATED EDITION</span>
@@ -516,134 +493,166 @@ export default function LuxuryResponsiveLanding() {
         </div>
       </section>
 
-      {/* ----------------- 2. PHILOSOPHY SECTION (SPYKER GRID ARCHITECTURE) ----------------- */}
-      <section id="philosophy" className="py-20 sm:py-28 bg-[#0a0a0a] border-y border-white/10 relative">
+      {/* ----------------- 2. PURE PASSION / ARCHITECTURAL CELLULAR PHILOSOPHY (SPYKER GALLERY WHITE) ----------------- */}
+      <section id="philosophy" className="py-24 sm:py-32 bg-white text-black border-b border-[#e5e5e5] relative">
         <div className="w-full max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12">
-          {/* Header */}
-          <div className="max-w-3xl space-y-3 mb-14 sm:mb-20">
-            <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-[#d08c81] block">
-              01 // CORE PHILOSOPHY
+          {/* Section Eyebrow */}
+          <div className="flex items-center justify-between border-b border-[#e5e5e5] pb-4 mb-14 sm:mb-20">
+            <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-neutral-400">
+              01 // THE MAKING OF BEAUTY LOTION
             </span>
-            <h2 className="text-3xl sm:text-5xl md:text-6xl font-medium tracking-tight uppercase leading-[0.95]">
-              Formulated as a <br />
-              <span className="font-serif italic font-normal text-[#e8c5c1] lowercase">tool for</span> Skin Longevity
-            </h2>
-            <p className="text-stone-400 text-xs sm:text-sm md:text-base font-light leading-relaxed pt-2 max-w-2xl">
-              Skin is an intelligent adaptive tissue. Rather than masking it with synthetic films, Beauty Lotion provides biomimetic lipid structures that actively reinforce the cellular barrier.
-            </p>
+            <span className="text-[10px] font-mono tracking-[0.25em] uppercase text-black font-semibold">
+              BIOMIMETIC ARCHITECTURE
+            </span>
           </div>
 
-          {/* 3-Column Spyker Hairline Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 border border-white/10 divide-y md:divide-y-0 md:divide-x divide-white/10">
-            {/* Pillar 01 */}
-            <div className="p-8 sm:p-10 flex flex-col justify-between space-y-8 bg-[#0d0d0d] hover:bg-[#121212] transition-colors group">
-              <div className="space-y-4">
-                <div className="flex items-center justify-between text-[10px] font-mono tracking-[0.25em] text-stone-400 uppercase">
-                  <span>PHASE 01</span>
-                  <span className="text-[#d08c81]">RESILIENCE</span>
-                </div>
-                <h3 className="text-2xl sm:text-3xl font-medium tracking-tight uppercase text-white">
-                  Protect
-                </h3>
-                <p className="text-stone-400 text-xs sm:text-sm font-light leading-relaxed">
-                  Shields the lipid mantle against particulate urban pollution, climate aridness, and daily free-radical fatigue without suffocating pores.
+          {/* Spyker-Style Asymmetric Editorial Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+            {/* Left 5 Columns: Narrow Narrative + Low Offset Visual Card */}
+            <div className="lg:col-span-5 space-y-8 sm:space-y-12">
+              <div className="space-y-5 max-w-[440px]">
+                <h2 className="text-4xl sm:text-6xl md:text-7xl font-medium tracking-tight uppercase leading-[0.85] text-black">
+                  Pure <br />
+                  Formulation
+                </h2>
+                <p className="text-neutral-700 text-sm sm:text-base font-normal leading-[1.6]">
+                  At a time when skincare is saturated with superficial silicones, Beauty Lotion remains deliberately physiological. Its bio-identical lipid complex, whipped micro-emulsion texture, and airless preservation celebrate the synergy between skin and cellular science.
                 </p>
+                <div className="pt-2">
+                  <button
+                    onClick={() => setIsJournalModalOpen(true)}
+                    className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.25em] text-black hover:text-[#d08c81] transition-colors border-b border-black pb-1 cursor-pointer"
+                  >
+                    <span>Read The Formulation Journal</span>
+                    <span>→</span>
+                  </button>
+                </div>
               </div>
-              <div className="pt-4 border-t border-white/10 text-[10px] font-mono tracking-widest uppercase text-[#e8c5c1] flex items-center gap-2">
-                <Check className="w-3.5 h-3.5 text-[#d08c81]" />
-                <span>Stratum Corneum Fortification</span>
+
+              {/* Staggered Offset Card: Flacon Detail */}
+              <div className="relative aspect-[3/4] w-full max-w-[380px] bg-neutral-100 rounded-[2px] overflow-hidden border border-[#e5e5e5]">
+                <Image
+                  src="/assets/prototype%20produk%20lotion%202.jpg"
+                  alt="Hermetic Dispenser Precision"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute bottom-3 left-3 right-3 bg-white/90 backdrop-blur-md p-2.5 text-[9px] font-mono tracking-widest uppercase text-black border border-[#e5e5e5] flex justify-between">
+                  <span>DISPENSER DETAIL</span>
+                  <span>0% CONTAMINATION</span>
+                </div>
               </div>
             </div>
 
-            {/* Pillar 02 */}
-            <div className="p-8 sm:p-10 flex flex-col justify-between space-y-8 bg-[#0d0d0d] hover:bg-[#121212] transition-colors group">
-              <div className="space-y-4">
-                <div className="flex items-center justify-between text-[10px] font-mono tracking-[0.25em] text-stone-400 uppercase">
-                  <span>PHASE 02</span>
-                  <span className="text-[#d08c81]">SYNTHESIS</span>
+            {/* Right 7 Columns: High-Anchored Macro & Staggered 3-Pillar Architecture */}
+            <div className="lg:col-span-7 space-y-12">
+              {/* High-Anchored Horizontal Visual Card */}
+              <div className="relative aspect-[16/10] w-full bg-neutral-100 rounded-[2px] overflow-hidden border border-[#e5e5e5]">
+                <Image
+                  src="/assets/prototype%20produk%20lotion.jpg"
+                  alt="Beauty Lotion Studio Prototype"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+                <div className="absolute top-4 left-4 bg-white/95 px-3 py-1 rounded-[2px] text-[9px] font-mono tracking-widest uppercase text-black border border-[#e5e5e5]">
+                  FLACON DESIGN // 150 ML STUDIO FRONT
                 </div>
-                <h3 className="text-2xl sm:text-3xl font-medium tracking-tight uppercase text-white">
-                  Recover
-                </h3>
-                <p className="text-stone-400 text-xs sm:text-sm font-light leading-relaxed">
-                  Accelerates cellular recovery with bio-identical ceramides, repairing micro-fractures in the skin barrier to restore silky firmness.
-                </p>
               </div>
-              <div className="pt-4 border-t border-white/10 text-[10px] font-mono tracking-widest uppercase text-[#e8c5c1] flex items-center gap-2">
-                <Check className="w-3.5 h-3.5 text-[#d08c81]" />
-                <span>Bio-Identical Lipid Repair</span>
-              </div>
-            </div>
 
-            {/* Pillar 03 */}
-            <div className="p-8 sm:p-10 flex flex-col justify-between space-y-8 bg-[#0d0d0d] hover:bg-[#121212] transition-colors group">
-              <div className="space-y-4">
-                <div className="flex items-center justify-between text-[10px] font-mono tracking-[0.25em] text-stone-400 uppercase">
-                  <span>PHASE 03</span>
-                  <span className="text-[#d08c81]">EQUILIBRIUM</span>
+              {/* 3 Pillars in Clean Hairline Split Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-3 border border-[#e5e5e5] divide-y md:divide-y-0 md:divide-x divide-[#e5e5e5] bg-neutral-50">
+                <div className="p-6 space-y-3">
+                  <span className="text-[10px] font-mono text-neutral-400 block tracking-widest">
+                    PHASE 01
+                  </span>
+                  <h3 className="text-lg font-medium uppercase text-black tracking-tight">Protect</h3>
+                  <p className="text-xs text-neutral-600 font-light leading-relaxed">
+                    Fortifies the lipid threshold against smog, climate aridness, and free-radical stress.
+                  </p>
                 </div>
-                <h3 className="text-2xl sm:text-3xl font-medium tracking-tight uppercase text-white">
-                  Maintain
-                </h3>
-                <p className="text-stone-400 text-xs sm:text-sm font-light leading-relaxed">
-                  Maintains an uninterrupted 24-hour hydration lock while preserving natural elasticity and barrier equilibrium from morning until dusk.
-                </p>
-              </div>
-              <div className="pt-4 border-t border-white/10 text-[10px] font-mono tracking-widest uppercase text-[#e8c5c1] flex items-center gap-2">
-                <Check className="w-3.5 h-3.5 text-[#d08c81]" />
-                <span>24-Hour Sustained Reservoir</span>
-              </div>
-            </div>
-          </div>
 
-          {/* Stark Metrics Strip */}
-          <div className="grid grid-cols-2 md:grid-cols-4 border-x border-b border-white/10 divide-x divide-white/10 text-center py-6 sm:py-8 bg-[#080808]">
-            <div className="p-3">
-              <div className="text-2xl sm:text-4xl md:text-5xl font-mono text-white">+98%</div>
-              <div className="text-[9px] sm:text-[10px] font-mono tracking-widest uppercase text-stone-400 mt-1">Barrier Fortification</div>
-            </div>
-            <div className="p-3">
-              <div className="text-2xl sm:text-4xl md:text-5xl font-mono text-[#e8c5c1]">24H</div>
-              <div className="text-[9px] sm:text-[10px] font-mono tracking-widest uppercase text-stone-400 mt-1">Hydration Lock</div>
-            </div>
-            <div className="p-3">
-              <div className="text-2xl sm:text-4xl md:text-5xl font-mono text-white">-89%</div>
-              <div className="text-[9px] sm:text-[10px] font-mono tracking-widest uppercase text-stone-400 mt-1">Water Loss (TEWL)</div>
-            </div>
-            <div className="p-3">
-              <div className="text-2xl sm:text-4xl md:text-5xl font-mono text-[#e8c5c1]">100%</div>
-              <div className="text-[9px] sm:text-[10px] font-mono tracking-widest uppercase text-stone-400 mt-1">Sensitive Certified</div>
+                <div className="p-6 space-y-3">
+                  <span className="text-[10px] font-mono text-neutral-400 block tracking-widest">
+                    PHASE 02
+                  </span>
+                  <h3 className="text-lg font-medium uppercase text-black tracking-tight">Recover</h3>
+                  <p className="text-xs text-neutral-600 font-light leading-relaxed">
+                    Bio-identical ceramides fuse with intercellular cracks to restore elasticity and smoothness.
+                  </p>
+                </div>
+
+                <div className="p-6 space-y-3">
+                  <span className="text-[10px] font-mono text-neutral-400 block tracking-widest">
+                    PHASE 03
+                  </span>
+                  <h3 className="text-lg font-medium uppercase text-black tracking-tight">Maintain</h3>
+                  <p className="text-xs text-neutral-600 font-light leading-relaxed">
+                    Sustains a 24-hour hydration lock without suffocating the skin or leaving grease.
+                  </p>
+                </div>
+              </div>
+
+              {/* Clinical Metrics Strip */}
+              <div className="grid grid-cols-2 md:grid-cols-4 border border-[#e5e5e5] divide-x divide-[#e5e5e5] text-center py-6 bg-white">
+                <div>
+                  <div className="text-2xl sm:text-4xl font-mono font-medium text-black">+98%</div>
+                  <div className="text-[9px] font-mono uppercase text-neutral-400 mt-0.5">Barrier Strength</div>
+                </div>
+                <div>
+                  <div className="text-2xl sm:text-4xl font-mono font-medium text-black">24H</div>
+                  <div className="text-[9px] font-mono uppercase text-neutral-400 mt-0.5">Hydration Lock</div>
+                </div>
+                <div>
+                  <div className="text-2xl sm:text-4xl font-mono font-medium text-black">-89%</div>
+                  <div className="text-[9px] font-mono uppercase text-neutral-400 mt-0.5">Moisture Loss</div>
+                </div>
+                <div>
+                  <div className="text-2xl sm:text-4xl font-mono font-medium text-black">100%</div>
+                  <div className="text-[9px] font-mono uppercase text-neutral-400 mt-0.5">Sensitive Tested</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ----------------- 3. SPYKER CINEMA THEATRE (MOTION SHOWCASE WITH 3 REELS) ----------------- */}
-      <section id="cinema" className="py-20 sm:py-28 bg-[#060606] border-b border-white/10 relative overflow-hidden">
+      {/* ----------------- 3. MONUMENTAL MOTTO & CINEMA THEATRE (SPYKER PITCH BLACK VOID) ----------------- */}
+      <section id="cinema" className="py-24 sm:py-36 bg-black text-white relative overflow-hidden border-b border-white/10">
         <div className="w-full max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12">
-          {/* Section Header */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-14 gap-6">
-            <div className="space-y-3">
-              <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-[#d08c81] block">
-                02 // SENSORY THEATRE
+          {/* Monumental Motto (Spyker "Nulla Tenaci Invia Est Via" Treatment) */}
+          <div className="text-center max-w-4xl mx-auto space-y-4 mb-16 sm:mb-24">
+            <span className="text-[10px] font-mono tracking-[0.35em] uppercase text-[#d08c81] block">
+              LATIN FORMULATION MAXIM
+            </span>
+            <h2 className="text-4xl sm:text-7xl md:text-8xl lg:text-[100px] font-medium tracking-tight uppercase leading-[0.85] [text-wrap:balance]">
+              SANITAS IN CORPORE VIVIDO
+            </h2>
+            <p className="text-stone-400 text-sm sm:text-base font-light italic font-serif tracking-wide pt-2">
+              “For the resilient, no cutaneous barrier is fragile.”
+            </p>
+          </div>
+
+          {/* Cinema Theatre Header Bar */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-4 border-b border-white/15 pb-4">
+            <div className="space-y-1">
+              <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-white/50 block">
+                02 // MOTION CINEMA THEATRE
               </span>
-              <h2 className="text-3xl sm:text-5xl md:text-6xl font-medium tracking-tight uppercase leading-[0.95]">
-                Formula In Motion
-              </h2>
-              <p className="text-stone-400 text-xs sm:text-sm font-light max-w-xl">
-                Observe the whipped micro-emulsion texture, container craft, and instantaneous melting assimilation onto skin.
-              </p>
+              <h3 className="text-xl sm:text-2xl font-medium uppercase tracking-tight text-white">
+                The Living Formulation In Motion
+              </h3>
             </div>
 
-            {/* Reel Switcher Buttons (Spyker Style Hairline Tabs) */}
-            <div className="flex flex-wrap items-center gap-2 border border-white/10 p-1 rounded-[2px] bg-[#0c0c0c]">
+            {/* Reel Tabs (Spyker Style Hairline Tabs) */}
+            <div className="flex flex-wrap items-center gap-2 border border-white/20 p-1 rounded-[2px] bg-[#0c0c0c]">
               {SENSORY_REELS.map((reel, idx) => (
                 <button
                   key={reel.id}
                   onClick={() => handleSelectReel(idx)}
                   className={`rounded-[2px] px-3.5 sm:px-5 py-2 text-[10px] sm:text-[11px] font-mono tracking-widest uppercase transition-all cursor-pointer ${
                     activeReelIndex === idx
-                      ? "bg-white text-black font-semibold shadow-md"
+                      ? "bg-white text-black font-semibold shadow-lg"
                       : "text-stone-400 hover:text-white"
                   }`}
                 >
@@ -654,7 +663,7 @@ export default function LuxuryResponsiveLanding() {
           </div>
 
           {/* Main Cinema Screen (16:9 Widescreen Theatre) */}
-          <div className="relative aspect-video w-full rounded-[2px] overflow-hidden border border-white/20 bg-black shadow-2xl group">
+          <div className="relative aspect-video w-full rounded-[2px] overflow-hidden border border-white/20 bg-neutral-950 shadow-2xl group">
             {/* The Active Video */}
             <video
               ref={cinemaVideoRef}
@@ -667,12 +676,12 @@ export default function LuxuryResponsiveLanding() {
               className="w-full h-full object-cover"
             />
 
-            {/* Crosshair Coordinates (Spyker Aesthetic) */}
-            <div className="absolute top-4 left-4 z-20 text-[9px] font-mono tracking-widest uppercase text-white/70 bg-black/60 px-3 py-1 border border-white/15 rounded-[2px]">
+            {/* Corner Crosshairs & Telemetry */}
+            <div className="absolute top-4 left-4 z-20 text-[9px] font-mono tracking-widest uppercase text-white/80 bg-black/70 px-3 py-1 border border-white/15 rounded-[2px]">
               {SENSORY_REELS[activeReelIndex].badge} • {SENSORY_REELS[activeReelIndex].telemetry}
             </div>
 
-            <div className="absolute top-4 right-4 z-20 text-[9px] font-mono tracking-widest uppercase text-white/70 bg-black/60 px-3 py-1 border border-white/15 rounded-[2px]">
+            <div className="absolute top-4 right-4 z-20 text-[9px] font-mono tracking-widest uppercase text-white/80 bg-black/70 px-3 py-1 border border-white/15 rounded-[2px]">
               FORMAT // 16:9 NATIVE
             </div>
 
@@ -688,9 +697,9 @@ export default function LuxuryResponsiveLanding() {
             {/* Bottom Screen Overlay */}
             <div className="absolute bottom-0 inset-x-0 p-4 sm:p-8 bg-gradient-to-t from-black via-black/60 to-transparent flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 z-20">
               <div className="space-y-1">
-                <h3 className="text-lg sm:text-2xl font-medium uppercase text-white tracking-tight">
+                <h4 className="text-base sm:text-xl font-medium uppercase text-white tracking-tight">
                   {SENSORY_REELS[activeReelIndex].title}
-                </h3>
+                </h4>
                 <p className="text-xs sm:text-sm text-stone-300 font-light max-w-xl">
                   {SENSORY_REELS[activeReelIndex].subtitle}
                 </p>
@@ -730,7 +739,7 @@ export default function LuxuryResponsiveLanding() {
                   const targetIdx = SENSORY_REELS.findIndex((r) => r.id === subReel.id);
                   if (targetIdx !== -1) handleSelectReel(targetIdx);
                 }}
-                className="border border-white/10 hover:border-[#d08c81]/50 p-4 rounded-[2px] bg-[#0b0b0b] flex items-center gap-4 cursor-pointer transition-all group"
+                className="border border-white/10 hover:border-[#d08c81]/60 p-4 rounded-[2px] bg-[#0c0c0c] flex items-center gap-4 cursor-pointer transition-all group"
               >
                 <div className="relative aspect-video w-36 sm:w-48 rounded-[2px] overflow-hidden bg-black shrink-0 border border-white/10">
                   <video
@@ -751,9 +760,9 @@ export default function LuxuryResponsiveLanding() {
                   <span className="text-[9px] font-mono text-[#d08c81] tracking-widest uppercase block">
                     SWITCH REEL VIEW →
                   </span>
-                  <h4 className="text-sm font-medium text-white truncate group-hover:text-[#e8c5c1] transition-colors">
+                  <h5 className="text-sm font-medium text-white truncate group-hover:text-[#e8c5c1] transition-colors">
                     {subReel.title}
-                  </h4>
+                  </h5>
                   <p className="text-[11px] text-stone-400 line-clamp-1 font-light">
                     {subReel.subtitle}
                   </p>
@@ -764,25 +773,23 @@ export default function LuxuryResponsiveLanding() {
         </div>
       </section>
 
-      {/* ----------------- 4. THE VESSEL (COACHBUILT PROTOTYPE GALLERY) ----------------- */}
-      <section id="vessel" className="py-20 sm:py-28 bg-[#0a0a0a] border-b border-white/10">
+      {/* ----------------- 4. THE VESSEL / CRAFTSMANSHIP GALLERY (SPYKER WARM GALLERY) ----------------- */}
+      <section id="vessel" className="py-24 sm:py-32 bg-[#faf8f5] text-black border-b border-[#e5e5e5]">
         <div className="w-full max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12">
-          <div className="max-w-3xl space-y-3 mb-12 sm:mb-16">
-            <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-[#d08c81] block">
-              03 // THE FLACON
+          {/* Section Header */}
+          <div className="flex items-center justify-between border-b border-[#e5e5e5] pb-4 mb-12 sm:mb-16">
+            <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-neutral-400">
+              03 // THE FLACON SPECIFICATION
             </span>
-            <h2 className="text-3xl sm:text-5xl md:text-6xl font-medium tracking-tight uppercase leading-[0.95]">
-              The Architectural Vessel
-            </h2>
-            <p className="text-stone-400 text-xs sm:text-sm font-light leading-relaxed max-w-xl">
-              Constructed with UV-blocking ceramic glass to protect active botanical bio-compounds against photochemical degradation.
-            </p>
+            <span className="text-[10px] font-mono tracking-[0.25em] uppercase text-black font-semibold">
+              HERMETIC NITROGEN DISPENSING
+            </span>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
             {/* Gallery Frame (Left 7 Columns) */}
-            <div className="lg:col-span-7 border border-white/10 bg-[#0d0d0d] p-4 sm:p-8 rounded-[2px] relative group">
-              <div className="relative aspect-square sm:aspect-[4/3] w-full bg-[#050505] rounded-[2px] overflow-hidden flex items-center justify-center border border-white/10">
+            <div className="lg:col-span-7 border border-[#e5e5e5] bg-white p-4 sm:p-8 rounded-[2px] relative group">
+              <div className="relative aspect-square sm:aspect-[4/3] w-full bg-[#f4f2ee] rounded-[2px] overflow-hidden flex items-center justify-center border border-[#e5e5e5]">
                 <Image
                   src={PROTOTYPE_IMAGES[activeImageIndex].src}
                   alt={PROTOTYPE_IMAGES[activeImageIndex].title}
@@ -795,14 +802,14 @@ export default function LuxuryResponsiveLanding() {
                 {/* Left/Right Touch Arrows */}
                 <button
                   onClick={prevAngle}
-                  className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-[2px] bg-black/80 hover:bg-black border border-white/20 flex items-center justify-center text-white transition-all cursor-pointer z-10"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-[2px] bg-white hover:bg-neutral-100 border border-[#e5e5e5] flex items-center justify-center text-black transition-all cursor-pointer z-10 shadow-sm"
                   aria-label="Previous Perspective"
                 >
                   <ChevronLeft className="w-4 h-4" />
                 </button>
                 <button
                   onClick={nextAngle}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-[2px] bg-black/80 hover:bg-black border border-white/20 flex items-center justify-center text-white transition-all cursor-pointer z-10"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-[2px] bg-white hover:bg-neutral-100 border border-[#e5e5e5] flex items-center justify-center text-black transition-all cursor-pointer z-10 shadow-sm"
                   aria-label="Next Perspective"
                 >
                   <ChevronRight className="w-4 h-4" />
@@ -812,28 +819,28 @@ export default function LuxuryResponsiveLanding() {
               {/* Angle Description */}
               <div className="mt-4 flex items-center justify-between text-xs font-mono">
                 <div>
-                  <span className="text-white font-medium block">
+                  <span className="text-black font-medium block">
                     {PROTOTYPE_IMAGES[activeImageIndex].title}
                   </span>
-                  <span className="text-stone-400 text-[11px]">
+                  <span className="text-neutral-500 text-[11px]">
                     {PROTOTYPE_IMAGES[activeImageIndex].spec}
                   </span>
                 </div>
-                <span className="text-[#d08c81] tracking-widest">
+                <span className="text-[#d08c81] tracking-widest font-semibold">
                   ANGLE // 0{activeImageIndex + 1} OF 04
                 </span>
               </div>
 
               {/* 4 Thumbnails */}
-              <div className="grid grid-cols-4 gap-3 mt-5 pt-4 border-t border-white/10">
+              <div className="grid grid-cols-4 gap-3 mt-5 pt-4 border-t border-[#e5e5e5]">
                 {PROTOTYPE_IMAGES.map((img, idx) => (
                   <button
                     key={img.id}
                     onClick={() => setActiveImageIndex(idx)}
-                    className={`relative aspect-square rounded-[2px] overflow-hidden border transition-all p-1 bg-black cursor-pointer ${
+                    className={`relative aspect-square rounded-[2px] overflow-hidden border transition-all p-1 bg-[#f4f2ee] cursor-pointer ${
                       activeImageIndex === idx
-                        ? "border-[#d08c81] ring-1 ring-[#d08c81]"
-                        : "border-white/10 opacity-50 hover:opacity-100"
+                        ? "border-black ring-1 ring-black"
+                        : "border-[#e5e5e5] opacity-60 hover:opacity-100"
                     }`}
                   >
                     <Image
@@ -850,53 +857,53 @@ export default function LuxuryResponsiveLanding() {
             {/* Specifications & Acquisition (Right 5 Columns) */}
             <div className="lg:col-span-5 space-y-6">
               <div className="space-y-3">
-                <span className="text-[10px] font-mono tracking-[0.25em] uppercase text-[#d08c81] block">
-                  TECHNICAL SPECIFICATION
+                <span className="text-[10px] font-mono tracking-[0.25em] uppercase text-neutral-400 block">
+                  CRAFT & ENGINEERING
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-medium uppercase text-white tracking-tight">
-                  150 ML Micro-Emulsion Vessel
+                <h3 className="text-3xl sm:text-4xl font-medium uppercase text-black tracking-tight leading-[0.95]">
+                  150 ML Hermetic Flacon
                 </h3>
-                <p className="text-xs sm:text-sm text-stone-400 font-light leading-relaxed">
-                  Engineered with an airless piston pump that maintains nitrogen hermetic seal throughout product lifespan, preventing active ingredient oxidation.
+                <p className="text-xs sm:text-sm text-neutral-600 font-light leading-relaxed">
+                  Engineered with an airless piston actuator that maintains nitrogen hermetic seal throughout product lifespan, protecting the formula against oxidation and photochemical breakdown.
                 </p>
               </div>
 
-              {/* Spyker-Style Spec Table */}
-              <div className="border border-white/10 divide-y divide-white/10 text-xs font-mono bg-[#0d0d0d] rounded-[2px]">
+              {/* Spec Table */}
+              <div className="border border-[#e5e5e5] divide-y divide-[#e5e5e5] text-xs font-mono bg-white rounded-[2px]">
                 <div className="p-3.5 flex justify-between">
-                  <span className="text-stone-400 uppercase">pH Equilibrium</span>
-                  <span className="text-white font-medium">5.5 (Biomimetic Acid Mantle)</span>
+                  <span className="text-neutral-500 uppercase">pH Equilibrium</span>
+                  <span className="text-black font-medium">5.5 (Acid Mantle Affinity)</span>
                 </div>
                 <div className="p-3.5 flex justify-between">
-                  <span className="text-stone-400 uppercase">Volume</span>
-                  <span className="text-white font-medium">150 ml / 5.1 fl. oz</span>
+                  <span className="text-neutral-500 uppercase">Volume</span>
+                  <span className="text-black font-medium">150 ml / 5.1 fl. oz</span>
                 </div>
                 <div className="p-3.5 flex justify-between">
-                  <span className="text-stone-400 uppercase">Aromatic Profile</span>
-                  <span className="text-white font-medium">100% Fragrance-Free</span>
+                  <span className="text-neutral-500 uppercase">Aromatic Accord</span>
+                  <span className="text-black font-medium">100% Fragrance-Free</span>
                 </div>
                 <div className="p-3.5 flex justify-between">
-                  <span className="text-stone-400 uppercase">Certification</span>
-                  <span className="text-white font-medium">100% Vegan • Cruelty-Free</span>
+                  <span className="text-neutral-500 uppercase">Certification</span>
+                  <span className="text-black font-medium">100% Vegan • Cruelty-Free</span>
                 </div>
                 <div className="p-3.5 flex justify-between">
-                  <span className="text-stone-400 uppercase">Batch Integrity</span>
-                  <span className="text-emerald-400 font-medium">Allocated Batch 01</span>
+                  <span className="text-neutral-500 uppercase">Allocation Status</span>
+                  <span className="text-emerald-700 font-semibold">Allocated Batch 01</span>
                 </div>
               </div>
 
               {/* Acquisition Box */}
-              <div className="border border-white/15 bg-[#101010] p-6 rounded-[2px] space-y-4">
+              <div className="border border-[#e5e5e5] bg-white p-6 rounded-[2px] space-y-4 shadow-sm">
                 <div className="flex items-baseline justify-between">
                   <div>
-                    <span className="text-[10px] font-mono text-stone-400 uppercase tracking-widest block">
+                    <span className="text-[10px] font-mono text-neutral-500 uppercase tracking-widest block">
                       OFFICIAL OFFERING
                     </span>
-                    <span className="text-2xl sm:text-3xl font-mono font-medium text-white">
+                    <span className="text-2xl sm:text-3xl font-mono font-medium text-black">
                       Rp 349.000
                     </span>
                   </div>
-                  <span className="text-[10px] font-mono text-emerald-400 tracking-wider uppercase border border-emerald-500/30 px-2.5 py-1">
+                  <span className="text-[10px] font-mono text-emerald-800 bg-emerald-50 tracking-wider uppercase border border-emerald-200 px-2.5 py-1">
                     READY TO DISPATCH
                   </span>
                 </div>
@@ -904,14 +911,14 @@ export default function LuxuryResponsiveLanding() {
                 <div className="flex flex-col sm:flex-row gap-3 pt-2">
                   <button
                     onClick={() => setIsOrderModalOpen(true)}
-                    className="flex-1 rounded-[2px] bg-white text-black hover:bg-stone-200 text-xs tracking-[0.2em] uppercase font-semibold py-3.5 px-6 text-center transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg"
+                    className="flex-1 rounded-[2px] bg-black text-white hover:bg-neutral-800 text-xs tracking-[0.2em] uppercase font-semibold py-3.5 px-6 text-center transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
                   >
                     <ShoppingBag className="w-4 h-4" />
                     <span>Acquire Vessel</span>
                   </button>
                   <button
                     onClick={handleDirectInquiryClick}
-                    className="rounded-[2px] border border-white/20 hover:border-white text-white text-xs tracking-[0.2em] uppercase font-medium py-3.5 px-6 text-center transition-all cursor-pointer"
+                    className="rounded-[2px] border border-neutral-300 hover:border-black text-black text-xs tracking-[0.2em] uppercase font-medium py-3.5 px-6 text-center transition-all cursor-pointer"
                   >
                     Inquire
                   </button>
@@ -922,41 +929,48 @@ export default function LuxuryResponsiveLanding() {
         </div>
       </section>
 
-      {/* ----------------- 5. BIO-ACTIVES MATRIX (SCIENCE) ----------------- */}
-      <section id="science" className="py-20 sm:py-28 bg-[#070707] border-b border-white/10">
+      {/* ----------------- 5. BIO-ACTIVES MATRIX (MUSEUM CARD GRID) ----------------- */}
+      <section id="science" className="py-24 sm:py-32 bg-white text-black border-b border-[#e5e5e5]">
         <div className="w-full max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12">
-          <div className="max-w-3xl space-y-3 mb-12 sm:mb-16">
-            <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-[#d08c81] block">
-              04 // BIO-ACTIVES
+          {/* Section Header */}
+          <div className="flex items-center justify-between border-b border-[#e5e5e5] pb-4 mb-12 sm:mb-16">
+            <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-neutral-400">
+              04 // BIO-ACTIVES MATRIX
             </span>
-            <h2 className="text-3xl sm:text-5xl md:text-6xl font-medium tracking-tight uppercase leading-[0.95]">
+            <span className="text-[10px] font-mono tracking-[0.25em] uppercase text-black font-semibold">
+              BIOCOMPATIBLE SYNTHESIS
+            </span>
+          </div>
+
+          <div className="max-w-3xl space-y-3 mb-14">
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-medium tracking-tight uppercase leading-[0.95] text-black">
               Active Ingredient Architecture
             </h2>
-            <p className="text-stone-400 text-xs sm:text-sm font-light leading-relaxed max-w-xl">
-              Four bio-compatible actives selected for exact cellular affinity and zero pore-clogging occlusion.
+            <p className="text-neutral-600 text-xs sm:text-sm font-light leading-relaxed max-w-xl">
+              Four physiologically native actives calibrated for instantaneous dermal affinity with zero pore-clogging residue.
             </p>
           </div>
 
           {/* 4-Grid Hairline Matrix */}
-          <div className="grid grid-cols-1 md:grid-cols-2 border border-white/10 divide-y md:divide-y-0 md:divide-x divide-white/10">
+          <div className="grid grid-cols-1 md:grid-cols-2 border border-[#e5e5e5] divide-y md:divide-y-0 md:divide-x divide-[#e5e5e5]">
             {INGREDIENTS.map((item, idx) => (
               <div
                 key={item.code}
-                className={`p-6 sm:p-8 space-y-4 bg-[#0a0a0a] hover:bg-[#0e0e0e] transition-colors ${
-                  idx >= 2 ? "md:border-t md:border-white/10" : ""
+                className={`p-8 space-y-4 bg-white hover:bg-[#faf9f7] transition-colors ${
+                  idx >= 2 ? "md:border-t md:border-[#e5e5e5]" : ""
                 }`}
               >
                 <div className="flex items-center justify-between text-[10px] font-mono tracking-widest uppercase">
-                  <span className="text-[#d08c81]">{item.code}</span>
-                  <span className="text-stone-400">{item.category}</span>
+                  <span className="text-[#d08c81] font-semibold">{item.code}</span>
+                  <span className="text-neutral-400">{item.category}</span>
                 </div>
-                <h3 className="text-lg sm:text-xl font-medium text-white uppercase tracking-tight">
+                <h3 className="text-xl sm:text-2xl font-medium text-black uppercase tracking-tight">
                   {item.name}
                 </h3>
-                <div className="text-[11px] font-mono text-stone-400">
+                <div className="text-[11px] font-mono text-neutral-500">
                   Formula: {item.formula}
                 </div>
-                <p className="text-xs text-stone-400 font-light leading-relaxed pt-1">
+                <p className="text-xs sm:text-sm text-neutral-600 font-light leading-relaxed pt-1">
                   {item.detail}
                 </p>
               </div>
@@ -964,54 +978,53 @@ export default function LuxuryResponsiveLanding() {
           </div>
 
           {/* Standards Banner */}
-          <div className="mt-8 border border-white/10 p-6 bg-[#0c0c0c] grid grid-cols-2 md:grid-cols-4 gap-4 text-center text-xs font-mono">
+          <div className="mt-8 border border-[#e5e5e5] p-6 bg-neutral-50 grid grid-cols-2 md:grid-cols-4 gap-4 text-center text-xs font-mono">
             <div>
-              <div className="text-white font-medium">0% PARABENS</div>
-              <div className="text-[10px] text-stone-400 uppercase mt-0.5">Zero Preservatives</div>
+              <div className="text-black font-semibold">0% PARABENS</div>
+              <div className="text-[10px] text-neutral-500 uppercase mt-0.5">Zero Preservatives</div>
             </div>
             <div>
-              <div className="text-white font-medium">0% FRAGRANCE</div>
-              <div className="text-[10px] text-stone-400 uppercase mt-0.5">Non-Sensitizing</div>
+              <div className="text-black font-semibold">0% FRAGRANCE</div>
+              <div className="text-[10px] text-neutral-500 uppercase mt-0.5">Non-Sensitizing</div>
             </div>
             <div>
-              <div className="text-white font-medium">100% VEGAN</div>
-              <div className="text-[10px] text-stone-400 uppercase mt-0.5">Cruelty-Free</div>
+              <div className="text-black font-semibold">100% VEGAN</div>
+              <div className="text-[10px] text-neutral-500 uppercase mt-0.5">Cruelty-Free</div>
             </div>
             <div>
-              <div className="text-white font-medium">DERM TESTED</div>
-              <div className="text-[10px] text-stone-400 uppercase mt-0.5">Hypoallergenic</div>
+              <div className="text-black font-semibold">DERM TESTED</div>
+              <div className="text-[10px] text-neutral-500 uppercase mt-0.5">Hypoallergenic</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ----------------- 6. PRIVATE CONCIERGE & DIRECT ORDERS ----------------- */}
-      <section id="concierge" className="py-20 sm:py-28 bg-[#050505] relative overflow-hidden">
-        <div className="w-full max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-14 items-start">
+      {/* ----------------- 6. PRIVATE CONCIERGE & COCKPIT ALLOCATION (SPYKER UNDERLINE FORM) ----------------- */}
+      <section id="concierge" className="py-24 sm:py-36 bg-[#080808] text-white relative overflow-hidden">
+        <div className="w-full max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 sm:gap-16 items-start">
             {/* Left 6 Columns: Direct Channels */}
             <div className="lg:col-span-6 space-y-8">
               <div className="space-y-3">
                 <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-[#d08c81] block">
                   05 // PRIVATE ADVISORY
                 </span>
-                <h2 className="text-3xl sm:text-5xl md:text-6xl font-medium tracking-tight uppercase leading-[0.95] text-white">
+                <h2 className="text-3xl sm:text-5xl md:text-6xl font-medium tracking-tight uppercase leading-[0.92] text-white">
                   Direct Allocation & <br />
-                  <span className="font-serif italic font-normal text-[#e8c5c1] lowercase">personal</span> Consultation
+                  <span className="font-serif italic font-normal text-[#e8c5c1] lowercase">bespoke</span> Consultation
                 </h2>
                 <p className="text-stone-400 text-xs sm:text-sm font-light leading-relaxed max-w-lg">
-                  For batch allocations, regimen integrations, or international priority shipping inquiries, our concierge desk is available directly.
+                  For reserved batch allocations, personal regimen guidance, or priority worldwide delivery inquiries, our private client advisors remain at your service.
                 </p>
               </div>
 
-              {/* Channel Cards */}
-              <div className="space-y-4">
-                {/* Priority WhatsApp */}
+              {/* Minimalist Channel Links */}
+              <div className="space-y-4 pt-2">
                 <a
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between p-5 bg-[#0a0a0a] hover:bg-[#101010] border border-white/10 hover:border-[#d08c81]/50 rounded-[2px] transition-all group"
+                  className="flex items-center justify-between p-5 bg-[#0f0f0f] hover:bg-[#141414] border border-white/10 hover:border-[#d08c81]/60 rounded-[2px] transition-all group"
                 >
                   <div className="flex items-center gap-4">
                     <div className="w-10 h-10 rounded-[2px] bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
@@ -1019,7 +1032,7 @@ export default function LuxuryResponsiveLanding() {
                     </div>
                     <div>
                       <span className="text-[9px] font-mono tracking-widest uppercase text-emerald-400 block">
-                        PRIORITY ADVISORY WHATSAPP
+                        PRIORITY WHATSAPP CHANNEL
                       </span>
                       <h4 className="text-sm font-mono text-white group-hover:text-[#d08c81] transition-colors">
                         +62 812-3456-7890
@@ -1029,10 +1042,9 @@ export default function LuxuryResponsiveLanding() {
                   <ExternalLink className="w-4 h-4 text-stone-500 group-hover:text-white transition-colors" />
                 </a>
 
-                {/* Direct Email */}
                 <a
                   href="mailto:concierge@beautylotion.com?subject=Inquiry%20Beauty%20Lotion"
-                  className="flex items-center justify-between p-5 bg-[#0a0a0a] hover:bg-[#101010] border border-white/10 hover:border-[#d08c81]/50 rounded-[2px] transition-all group"
+                  className="flex items-center justify-between p-5 bg-[#0f0f0f] hover:bg-[#141414] border border-white/10 hover:border-[#d08c81]/60 rounded-[2px] transition-all group"
                 >
                   <div className="flex items-center gap-4">
                     <div className="w-10 h-10 rounded-[2px] bg-[#d08c81]/20 text-[#d08c81] flex items-center justify-center shrink-0">
@@ -1040,7 +1052,7 @@ export default function LuxuryResponsiveLanding() {
                     </div>
                     <div>
                       <span className="text-[9px] font-mono tracking-widest uppercase text-[#d08c81] block">
-                        DEDICATED CLIENT DESK
+                        ELECTRONIC CLIENT DESK
                       </span>
                       <h4 className="text-sm font-mono text-white group-hover:text-[#d08c81] transition-colors">
                         concierge@beautylotion.com
@@ -1050,23 +1062,22 @@ export default function LuxuryResponsiveLanding() {
                   <ExternalLink className="w-4 h-4 text-stone-500 group-hover:text-white transition-colors" />
                 </a>
 
-                {/* Operating Telemetry */}
-                <div className="flex items-center gap-3 p-4 bg-[#080808] border border-white/5 rounded-[2px] text-[11px] font-mono text-stone-400">
+                <div className="flex items-center gap-3 p-4 bg-[#0a0a0a] border border-white/5 rounded-[2px] text-[11px] font-mono text-stone-400">
                   <Clock className="w-4 h-4 text-[#d08c81] shrink-0" />
-                  <span>HOURS: MON – SAT (08:00 – 20:00). EXPRESS GLOBAL ALLOCATION.</span>
+                  <span>DESK HOURS: MON – SAT (08:00 – 20:00). EXPRESS GLOBAL ALLOCATION.</span>
                 </div>
               </div>
             </div>
 
-            {/* Right 6 Columns: Transmission Form */}
-            <div className="lg:col-span-6 border border-white/15 bg-[#0a0a0a] p-6 sm:p-10 rounded-[2px]">
-              <div className="space-y-2 mb-6">
-                <h3 className="text-lg sm:text-xl font-medium uppercase text-white tracking-tight">
-                  Transmit Allocation Request
+            {/* Right 6 Columns: Spyker-Style Underline Baseline Form (Zero Bulky Boxes) */}
+            <div className="lg:col-span-6 border border-white/15 bg-[#0d0d0d] p-6 sm:p-10 rounded-[2px] space-y-6">
+              <div className="space-y-2">
+                <span className="text-[10px] font-mono tracking-[0.25em] uppercase text-stone-400 block">
+                  TRANSMISSION TERMINAL
+                </span>
+                <h3 className="text-xl sm:text-2xl font-medium uppercase text-white tracking-tight">
+                  Request Allocation Dispatch
                 </h3>
-                <p className="text-xs text-stone-400 font-light">
-                  Submit your request below. A client advisor will attend to your inquiry promptly.
-                </p>
               </div>
 
               {inquirySent ? (
@@ -1074,11 +1085,11 @@ export default function LuxuryResponsiveLanding() {
                   <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto">
                     <Check className="w-6 h-6" />
                   </div>
-                  <h4 className="text-base font-medium text-white uppercase tracking-wider">
-                    Transmission Logged
+                  <h4 className="text-base font-medium text-white uppercase tracking-wider font-mono">
+                    Transmission Received
                   </h4>
                   <p className="text-xs text-stone-300 font-light leading-relaxed">
-                    Thank you. A dedicated Beauty Lotion advisor has received your dispatch and will reply shortly.
+                    Thank you. A dedicated Beauty Lotion advisor has logged your dispatch and will reply shortly.
                   </p>
                   <button
                     onClick={() => {
@@ -1089,14 +1100,15 @@ export default function LuxuryResponsiveLanding() {
                     }}
                     className="text-xs text-[#d08c81] underline uppercase tracking-widest font-mono pt-2 cursor-pointer"
                   >
-                    Send Another Transmission
+                    Submit Another Dispatch
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleConciergeSubmit} className="space-y-4">
-                  <div>
-                    <label className="block text-[10px] font-mono uppercase tracking-widest text-stone-300 mb-1.5">
-                      Client Name *
+                <form onSubmit={handleConciergeSubmit} className="space-y-6">
+                  {/* Underline Baseline Input 1 */}
+                  <div className="space-y-1">
+                    <label className="block text-[10px] font-mono uppercase tracking-widest text-stone-400">
+                      Client Full Name *
                     </label>
                     <input
                       type="text"
@@ -1104,13 +1116,14 @@ export default function LuxuryResponsiveLanding() {
                       placeholder="e.g. Eleanor Vance"
                       value={clientName}
                       onChange={(e) => setClientName(e.target.value)}
-                      className="w-full bg-[#111] border border-white/15 rounded-[2px] px-4 py-3 text-xs text-white placeholder-stone-600 focus:outline-none focus:border-white transition-colors"
+                      className="w-full bg-transparent border-b border-white/30 hover:border-white focus:border-white py-2 text-sm text-white placeholder-stone-600 focus:outline-none transition-colors"
                     />
                   </div>
 
-                  <div>
-                    <label className="block text-[10px] font-mono uppercase tracking-widest text-stone-300 mb-1.5">
-                      Direct WhatsApp or Email *
+                  {/* Underline Baseline Input 2 */}
+                  <div className="space-y-1">
+                    <label className="block text-[10px] font-mono uppercase tracking-widest text-stone-400">
+                      WhatsApp or Email *
                     </label>
                     <input
                       type="text"
@@ -1118,77 +1131,109 @@ export default function LuxuryResponsiveLanding() {
                       placeholder="+62 812-3456-7890 or eleanor@domain.com"
                       value={clientContact}
                       onChange={(e) => setClientContact(e.target.value)}
-                      className="w-full bg-[#111] border border-white/15 rounded-[2px] px-4 py-3 text-xs text-white placeholder-stone-600 focus:outline-none focus:border-white transition-colors"
+                      className="w-full bg-transparent border-b border-white/30 hover:border-white focus:border-white py-2 text-sm text-white placeholder-stone-600 focus:outline-none transition-colors"
                     />
                   </div>
 
-                  <div>
-                    <label className="block text-[10px] font-mono uppercase tracking-widest text-stone-300 mb-1.5">
-                      Inquiry Notes or Allocation Details
+                  {/* Underline Baseline Input 3 */}
+                  <div className="space-y-1">
+                    <label className="block text-[10px] font-mono uppercase tracking-widest text-stone-400">
+                      Inquiry Notes / Specific Bottle Allocation
                     </label>
                     <textarea
                       ref={messageInputRef}
-                      rows={3}
-                      placeholder="Please note skin sensitivities, bottle quantities, or delivery preferences..."
+                      rows={2}
+                      placeholder="Please note skin type, bottle quantities, or delivery preferences..."
                       value={clientMessage}
                       onChange={(e) => setClientMessage(e.target.value)}
-                      className="w-full bg-[#111] border border-white/15 rounded-[2px] px-4 py-3 text-xs text-white placeholder-stone-600 focus:outline-none focus:border-white transition-colors resize-none"
+                      className="w-full bg-transparent border-b border-white/30 hover:border-white focus:border-white py-2 text-sm text-white placeholder-stone-600 focus:outline-none transition-colors resize-none"
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full rounded-[2px] bg-white text-black hover:bg-stone-200 font-semibold py-3.5 text-xs tracking-[0.25em] uppercase transition-all flex items-center justify-center gap-2 cursor-pointer mt-2"
+                    className="w-full rounded-[2px] bg-white text-black hover:bg-stone-200 font-semibold py-4 text-xs tracking-[0.25em] uppercase transition-all flex items-center justify-center gap-2 cursor-pointer pt-3 shadow-lg"
                   >
-                    <Send className="w-4 h-4" />
                     <span>Transmit To Advisory Desk</span>
+                    <ArrowRight className="w-4 h-4" />
                   </button>
                 </form>
               )}
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* Understated Editorial Footer */}
-          <div className="pt-16 mt-16 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-[11px] font-mono text-stone-500 gap-4 text-center sm:text-left">
+      {/* ----------------- 7. CLEAN SWISS FOOTER (SPYKER GALLERY WHITE) ----------------- */}
+      <footer className="bg-white text-black border-t border-[#e5e5e5] py-14 sm:py-20">
+        <div className="w-full max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12 space-y-12">
+          {/* Top Row: Wordmark & Core Motto */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-[#e5e5e5] pb-8 gap-6">
             <div>
-              © 2026 BEAUTY LOTION. ALL RIGHTS RESERVED. CELLULAR SKIN FITNESS.
+              <span className="font-sans text-2xl sm:text-3xl font-medium tracking-[0.35em] uppercase text-black block">
+                BEAUTY LOTION
+              </span>
+              <span className="text-[9px] font-mono tracking-[0.3em] uppercase text-neutral-400 mt-1 block">
+                Cellular Skin Fitness • Single Masterpiece Edition
+              </span>
             </div>
-            <div className="flex flex-wrap items-center justify-center space-x-6 text-[10px] tracking-widest uppercase text-stone-400">
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white transition-colors"
-              >
-                Instagram
-              </a>
-              <span>•</span>
-              <a
-                href="https://tiktok.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white transition-colors"
-              >
-                TikTok
-              </a>
-              <span>•</span>
-              <button
-                onClick={() => setIsJournalModalOpen(true)}
-                className="hover:text-white transition-colors cursor-pointer"
-              >
-                Journal
-              </button>
-              <span>•</span>
-              <button
-                onClick={() => setIsPrivacyModalOpen(true)}
-                className="hover:text-white transition-colors cursor-pointer"
-              >
-                Privacy
-              </button>
+
+            <div className="font-serif italic text-neutral-600 text-sm">
+              Nulla Tenaci Invia Est Via — Cellular Resilience
+            </div>
+          </div>
+
+          {/* 4-Column Swiss Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-xs font-mono text-neutral-500">
+            <div className="space-y-2">
+              <span className="text-black uppercase block font-semibold">Navigation</span>
+              <ul className="space-y-1.5">
+                <li><a href="#philosophy" onClick={(e) => scrollToSection(e, "philosophy")} className="hover:text-black">Philosophy</a></li>
+                <li><a href="#cinema" onClick={(e) => scrollToSection(e, "cinema")} className="hover:text-black">Motion Cinema</a></li>
+                <li><a href="#vessel" onClick={(e) => scrollToSection(e, "vessel")} className="hover:text-black">The Vessel</a></li>
+                <li><a href="#science" onClick={(e) => scrollToSection(e, "science")} className="hover:text-black">Actives Matrix</a></li>
+              </ul>
+            </div>
+
+            <div className="space-y-2">
+              <span className="text-black uppercase block font-semibold">Concierge</span>
+              <ul className="space-y-1.5">
+                <li><a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="hover:text-black">WhatsApp Channel</a></li>
+                <li><a href="mailto:concierge@beautylotion.com" className="hover:text-black">Electronic Desk</a></li>
+                <li><a href="#concierge" onClick={(e) => scrollToSection(e, "concierge")} className="hover:text-black">Direct Dispatch</a></li>
+              </ul>
+            </div>
+
+            <div className="space-y-2">
+              <span className="text-black uppercase block font-semibold">Journal & Media</span>
+              <ul className="space-y-1.5">
+                <li><button onClick={() => setIsJournalModalOpen(true)} className="hover:text-black cursor-pointer">Editorial Volume 01</button></li>
+                <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-black">Instagram Journal</a></li>
+                <li><a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" className="hover:text-black">TikTok Motion</a></li>
+              </ul>
+            </div>
+
+            <div className="space-y-2">
+              <span className="text-black uppercase block font-semibold">Governance</span>
+              <ul className="space-y-1.5">
+                <li><button onClick={() => setIsPrivacyModalOpen(true)} className="hover:text-black cursor-pointer">Privacy & Data</button></li>
+                <li><button onClick={() => setIsPrivacyModalOpen(true)} className="hover:text-black cursor-pointer">Ethical Standards</button></li>
+                <li><button onClick={() => setIsPrivacyModalOpen(true)} className="hover:text-black cursor-pointer">100% Vegan Charter</button></li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Copyright Line */}
+          <div className="pt-6 border-t border-[#e5e5e5] flex flex-col sm:flex-row items-center justify-between text-[11px] font-mono text-neutral-400 gap-4">
+            <div>
+              © 2026 BEAUTY LOTION. ALL RIGHTS RESERVED.
+            </div>
+            <div>
+              ADVANCED CELLULAR RESEARCH // GLOBAL DISPATCH
             </div>
           </div>
         </div>
-      </section>
+      </footer>
 
       {/* =========================================================================
           SPYKER-STYLE MINIMALIST LUXURY MODALS
