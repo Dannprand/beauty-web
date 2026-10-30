@@ -19,7 +19,7 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "BEAUTY IN STEM — Advanced Cellular Skincare & Skin Fitness",
+  title: "Beauty Lotion — Advanced Cellular Skincare & Skin Fitness",
   description: "Formulated as a Skin Fitness Tool with bio-identical ceramides and multi-molecular hydration science to fortify cutaneous barrier resilience.",
   icons: {
     icon: "/favicon.ico",
