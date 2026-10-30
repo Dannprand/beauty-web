@@ -244,24 +244,74 @@ export default function LuxuryResponsiveLanding() {
 
   return (
     <div id="top" className="relative min-h-screen bg-[#070707] text-[#111111] antialiased selection:bg-[#d08c81]/30 selection:text-white">
-      {/* ----------------- SPYKER-STYLE MINIMALIST FLOATING HEADER ----------------- */}
-      <header className="fixed top-0 inset-x-0 z-40 transition-all duration-300">
+      {/* ----------------- TOP UTILITY & TELEMETRY BAR (BARIS PALING ATAS - IKUT TERSCROLL) ----------------- */}
+      <div className="w-full bg-[#0a0a0a] border-b border-white/10 text-[9px] sm:text-[10px] font-mono tracking-[0.25em] sm:tracking-[0.3em] uppercase py-2.5 px-4 sm:px-8 lg:px-12 text-stone-400">
+        <div className="w-full max-w-[1536px] mx-auto flex items-center justify-between">
+          <div className="flex items-center gap-2.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#d08c81] animate-ping" />
+            <span className="text-stone-300 font-sans tracking-[0.2em] font-medium">CELLULAR SKIN FITNESS</span>
+            <span className="hidden sm:inline text-stone-600">•</span>
+            <span className="hidden sm:inline text-stone-400">SPEC // 05.5 pH BIOMIMETIC</span>
+          </div>
+
+          <div className="hidden lg:flex items-center gap-6 text-[9px] text-stone-400">
+            <span>SERIAL // BL-150-2026</span>
+            <span>•</span>
+            <span>150 ML // 5.1 FL. OZ</span>
+            <span>•</span>
+            <span className="text-[#e8c5c1]">GLOBAL EXPRESS ALLOCATION</span>
+          </div>
+
+          <div className="flex items-center gap-4 text-[9px] font-sans">
+            <span className="text-[#e8c5c1] tracking-widest font-semibold">BATCH N° 01 / READY</span>
+            <span className="text-stone-600 hidden xs:inline">•</span>
+            <a
+              href="mailto:concierge@beautylotion.com"
+              className="hidden xs:inline hover:text-white transition-colors tracking-widest uppercase text-stone-400"
+            >
+              CONCIERGE@BEAUTYLOTION.COM
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* ----------------- PRIMARY MAIN HEADER (IKUT TERSCROLL DENGAN HALAMAN) ----------------- */}
+      <header className="relative w-full bg-[#070707] border-b border-white/10 text-white z-30 transition-all">
         <div className="w-full max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12 h-20 sm:h-24 grid grid-cols-[1fr_auto_1fr] items-center">
-          {/* Left: 2-Line Minimalist Menu Trigger (Spyker Iconic Hamburger) */}
-          <div className="flex items-center">
+          {/* Left: 2-Line Minimalist Menu Trigger (Spyker Iconic Hamburger) & Section Links */}
+          <div className="flex items-center gap-6">
             <button
               onClick={() => setIsNavDrawerOpen(true)}
-              className="flex items-center gap-3 group cursor-pointer p-2 -ml-2"
+              className="flex items-center gap-3 group cursor-pointer p-2 -ml-2 text-white hover:text-[#d08c81] transition-colors"
               aria-label="Open Navigation Menu"
             >
               <div className="w-6 flex flex-col justify-center space-y-1.5">
-                <span className="block h-[1.5px] w-6 bg-white transition-transform group-hover:translate-x-1" />
-                <span className="block h-[1.5px] w-4 bg-white transition-all group-hover:w-6" />
+                <span className="block h-[1.5px] w-6 bg-white group-hover:bg-[#d08c81] transition-transform group-hover:translate-x-1" />
+                <span className="block h-[1.5px] w-4 bg-white group-hover:bg-[#d08c81] transition-all group-hover:w-6" />
               </div>
-              <span className="hidden sm:inline font-mono text-[11px] tracking-[0.25em] uppercase text-white/80 group-hover:text-white">
+              <span className="font-mono text-[11px] tracking-[0.25em] uppercase text-white/90 group-hover:text-white">
                 Menu
               </span>
             </button>
+
+            {/* Quick in-page links for convenience */}
+            <nav className="hidden xl:flex items-center space-x-6 text-[10px] font-mono tracking-[0.22em] uppercase text-stone-400 border-l border-white/10 pl-6">
+              <a href="#philosophy" onClick={(e) => scrollToSection(e, "philosophy")} className="hover:text-white transition-colors">
+                Philosophy
+              </a>
+              <a href="#cinema" onClick={(e) => scrollToSection(e, "cinema")} className="hover:text-[#d08c81] transition-colors text-white">
+                Cinema
+              </a>
+              <a href="#vessel" onClick={(e) => scrollToSection(e, "vessel")} className="hover:text-white transition-colors">
+                Vessel
+              </a>
+              <a href="#science" onClick={(e) => scrollToSection(e, "science")} className="hover:text-white transition-colors">
+                Actives
+              </a>
+              <a href="#concierge" onClick={(e) => scrollToSection(e, "concierge")} className="hover:text-white transition-colors">
+                Concierge
+              </a>
+            </nav>
           </div>
 
           {/* Center: Brand Wordmark */}
@@ -288,14 +338,14 @@ export default function LuxuryResponsiveLanding() {
               className="rounded-[2px] bg-white text-black hover:bg-stone-200 text-[10px] sm:text-[11px] tracking-[0.22em] uppercase font-semibold px-4 sm:px-6 py-2.5 transition-all flex items-center gap-2 cursor-pointer shadow-lg"
             >
               <ShoppingBag className="w-3.5 h-3.5" />
-              <span className="hidden xs:inline">Acquire</span>
+              <span>Acquire</span>
             </button>
 
             <a
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:flex rounded-[2px] border border-white/25 hover:border-white text-white text-[10px] sm:text-[11px] tracking-[0.2em] uppercase font-medium px-4 py-2.5 transition-all items-center gap-1.5 backdrop-blur-md bg-black/40"
+              className="hidden sm:flex rounded-[2px] border border-white/25 hover:border-white text-white text-[10px] sm:text-[11px] tracking-[0.2em] uppercase font-medium px-4 py-2.5 transition-all items-center gap-1.5 bg-white/5"
             >
               <MessageCircle className="w-3.5 h-3.5 text-[#d08c81]" />
               <span>Desk</span>
@@ -422,12 +472,12 @@ export default function LuxuryResponsiveLanding() {
         </div>
 
         {/* Telemetry Corner Accents */}
-        <div className="absolute top-28 left-4 sm:left-12 z-20 text-[10px] font-mono tracking-[0.25em] uppercase text-white/50 hidden sm:block">
+        <div className="absolute top-8 left-4 sm:left-12 z-20 text-[10px] font-mono tracking-[0.25em] uppercase text-white/50 hidden sm:block">
           <div>SPEC // 05.5 pH BIOMIMETIC</div>
           <div>SERIAL // BL-150-2026</div>
         </div>
 
-        <div className="absolute top-28 right-4 sm:right-12 z-20 hidden sm:block">
+        <div className="absolute top-8 right-4 sm:right-12 z-20 hidden sm:block">
           <button
             onClick={toggleHeroMute}
             className="rounded-[2px] px-3.5 py-1.5 bg-black/60 hover:bg-black/90 backdrop-blur-md border border-white/20 text-white text-[10px] font-mono tracking-widest uppercase transition-all flex items-center gap-2 cursor-pointer"
