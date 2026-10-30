@@ -814,9 +814,9 @@ export default function LuxuryResponsiveLanding() {
 
           {/* Dual Editorial Video Cards (Replacing Heavy Text with Visual Aesthetics) */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-stretch max-w-5xl mx-auto">
-            {/* Video Card 1: video body 2.mp4 (Application & Dispensing) */}
+            {/* Video Card 1: video body 2.mp4 (Formulation & Cream Texture) */}
             <div className="bg-white/5 rounded-3xl p-4 sm:p-6 border border-white/10 flex flex-col justify-between group hover:border-[#d08c81]/40 transition-all">
-              <div className="relative aspect-[9/16] w-full rounded-2xl overflow-hidden bg-black/80 shadow-2xl">
+              <div className="relative aspect-video w-full rounded-2xl overflow-hidden bg-black/80 shadow-2xl">
                 <video
                   ref={video2Ref}
                   src="/assets/video%20body%202.mp4"
@@ -829,21 +829,21 @@ export default function LuxuryResponsiveLanding() {
 
                 {/* Top Badge */}
                 <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-md border border-white/20 text-[#e8c5c1] text-[9px] font-semibold tracking-widest uppercase px-3 py-1 rounded-full">
-                  Application Nuance • 01
+                  Formulation Nuance • 01
                 </div>
 
                 {/* Video Controls Overlay */}
                 <div className="absolute bottom-3 right-3 flex items-center gap-2">
                   <button
                     onClick={toggleVideo2Play}
-                    className="p-2 rounded-full bg-black/70 hover:bg-black text-white backdrop-blur-md border border-white/20 transition-all"
+                    className="p-2 rounded-full bg-black/70 hover:bg-black text-white backdrop-blur-md border border-white/20 transition-all cursor-pointer"
                     aria-label={isVideo2Playing ? "Pause Video 1" : "Play Video 1"}
                   >
                     {isVideo2Playing ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
                   </button>
                   <button
                     onClick={toggleVideo2Mute}
-                    className="p-2 rounded-full bg-black/70 hover:bg-black text-white backdrop-blur-md border border-white/20 transition-all"
+                    className="p-2 rounded-full bg-black/70 hover:bg-black text-white backdrop-blur-md border border-white/20 transition-all cursor-pointer"
                     aria-label={isVideo2Muted ? "Unmute Video 1" : "Mute Video 1"}
                   >
                     {isVideo2Muted ? <VolumeX className="w-3.5 h-3.5 text-[#d08c81]" /> : <Volume2 className="w-3.5 h-3.5 text-emerald-400" />}
@@ -853,16 +853,16 @@ export default function LuxuryResponsiveLanding() {
 
               {/* Minimal Caption */}
               <div className="pt-4 sm:pt-5 space-y-1">
-                <h3 className="text-base sm:text-lg font-medium text-white">Effortless Glide & Micro-Dosing</h3>
+                <h3 className="text-base sm:text-lg font-medium text-white">Whipped Micro-Emulsion Texture</h3>
                 <p className="text-xs text-stone-400 font-light leading-relaxed">
-                  The airless pump dispenses an exact measure that transforms under body temperature into an ultra-sheer moisture veil.
+                  Engineered to deliver intense lipid replenishment with a velvety, breathable finish that never feels heavy.
                 </p>
               </div>
             </div>
 
-            {/* Video Card 2: video body 3.mp4 (Micro-Emulsion Texture Loop) */}
+            {/* Video Card 2: video body 3.mp4 (Skin Contact & Application) */}
             <div className="bg-white/5 rounded-3xl p-4 sm:p-6 border border-white/10 flex flex-col justify-between group hover:border-[#d08c81]/40 transition-all">
-              <div className="relative aspect-[9/16] w-full rounded-2xl overflow-hidden bg-black/80 shadow-2xl">
+              <div className="relative aspect-video w-full rounded-2xl overflow-hidden bg-black/80 shadow-2xl">
                 <video
                   ref={video3Ref}
                   src="/assets/video%20body%203.mp4"
@@ -875,14 +875,14 @@ export default function LuxuryResponsiveLanding() {
 
                 {/* Top Badge */}
                 <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-md border border-white/20 text-[#e8c5c1] text-[9px] font-semibold tracking-widest uppercase px-3 py-1 rounded-full">
-                  Instant Assimilation • 02
+                  Skin Application • 02
                 </div>
 
                 {/* Video Controls Overlay */}
                 <div className="absolute bottom-3 right-3 flex items-center gap-2">
                   <button
                     onClick={toggleVideo3Play}
-                    className="p-2 rounded-full bg-black/70 hover:bg-black text-white backdrop-blur-md border border-white/20 transition-all"
+                    className="p-2 rounded-full bg-black/70 hover:bg-black text-white backdrop-blur-md border border-white/20 transition-all cursor-pointer"
                     aria-label={isVideo3Playing ? "Pause Video 2" : "Play Video 2"}
                   >
                     {isVideo3Playing ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
@@ -892,9 +892,9 @@ export default function LuxuryResponsiveLanding() {
 
               {/* Minimal Caption */}
               <div className="pt-4 sm:pt-5 space-y-1">
-                <h3 className="text-base sm:text-lg font-medium text-white">Sub-Micron Absorption</h3>
+                <h3 className="text-base sm:text-lg font-medium text-white">Instant Melting Assimilation</h3>
                 <p className="text-xs text-stone-400 font-light leading-relaxed">
-                  Bio-compatible lipid spheres melt instantly into intercellular layers, leaving skin soft, calm, and illuminated without grease.
+                  Glides smoothly across the skin surface, absorbing within seconds into an understated, dewy glow.
                 </p>
               </div>
             </div>
