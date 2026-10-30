@@ -418,33 +418,13 @@ export default function LuxuryResponsiveLanding() {
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/60" />
         </div>
 
-        {/* Telemetry Corner Accents */}
-        <div className="absolute top-8 left-4 sm:left-12 z-20 text-[10px] font-mono tracking-[0.25em] uppercase text-white/50 hidden sm:block">
-          <div>SPEC // 05.5 pH BIOMIMETIC</div>
-          <div>SERIAL // BL-150-2026</div>
-        </div>
+       
 
-        <div className="absolute top-8 right-4 sm:right-12 z-20 hidden sm:block">
-          <button
-            onClick={toggleHeroMute}
-            className="rounded-[2px] px-3.5 py-1.5 bg-black/60 hover:bg-black/90 backdrop-blur-md border border-white/20 text-white text-[10px] font-mono tracking-widest uppercase transition-all flex items-center gap-2 cursor-pointer"
-          >
-            {isHeroMuted ? (
-              <VolumeX className="w-3.5 h-3.5 text-[#d08c81]" />
-            ) : (
-              <Volume2 className="w-3.5 h-3.5 text-emerald-400" />
-            )}
-            <span>SOUND [{isHeroMuted ? "MUTED" : "PLAYING"}]</span>
-          </button>
-        </div>
-
+       
         {/* Hero Narrative Overlay */}
         <div className="relative z-10 w-full max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12">
           <div className="max-w-4xl space-y-5 sm:space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-[2px] bg-white/10 backdrop-blur-md border border-white/20 text-[#e8c5c1] text-[9px] sm:text-[10px] font-mono tracking-[0.3em] uppercase">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#d08c81]" />
-              THE ARCHITECTURAL SKIN FORMULATION
-            </div>
+            
 
             <h1 className="text-4xl xs:text-5xl sm:text-7xl md:text-8xl lg:text-[100px] font-medium text-white tracking-[-0.01em] uppercase leading-[0.88] [text-wrap:balance]">
               ENGINEERED <br />
