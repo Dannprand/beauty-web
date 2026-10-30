@@ -244,41 +244,11 @@ export default function LuxuryResponsiveLanding() {
 
   return (
     <div id="top" className="relative min-h-screen bg-[#070707] text-[#111111] antialiased selection:bg-[#d08c81]/30 selection:text-white">
-      {/* ----------------- TOP UTILITY & TELEMETRY BAR (BARIS PALING ATAS - IKUT TERSCROLL) ----------------- */}
-      <div className="w-full bg-[#0a0a0a] border-b border-white/10 text-[9px] sm:text-[10px] font-mono tracking-[0.25em] sm:tracking-[0.3em] uppercase py-2.5 px-4 sm:px-8 lg:px-12 text-stone-400">
-        <div className="w-full max-w-[1536px] mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-2.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#d08c81] animate-ping" />
-            <span className="text-stone-300 font-sans tracking-[0.2em] font-medium">CELLULAR SKIN FITNESS</span>
-            <span className="hidden sm:inline text-stone-600">•</span>
-            <span className="hidden sm:inline text-stone-400">SPEC // 05.5 pH BIOMIMETIC</span>
-          </div>
 
-          <div className="hidden lg:flex items-center gap-6 text-[9px] text-stone-400">
-            <span>SERIAL // BL-150-2026</span>
-            <span>•</span>
-            <span>150 ML // 5.1 FL. OZ</span>
-            <span>•</span>
-            <span className="text-[#e8c5c1]">GLOBAL EXPRESS ALLOCATION</span>
-          </div>
-
-          <div className="flex items-center gap-4 text-[9px] font-sans">
-            <span className="text-[#e8c5c1] tracking-widest font-semibold">BATCH N° 01 / READY</span>
-            <span className="text-stone-600 hidden xs:inline">•</span>
-            <a
-              href="mailto:concierge@beautylotion.com"
-              className="hidden xs:inline hover:text-white transition-colors tracking-widest uppercase text-stone-400"
-            >
-              CONCIERGE@BEAUTYLOTION.COM
-            </a>
-          </div>
-        </div>
-      </div>
-
-      {/* ----------------- PRIMARY MAIN HEADER (IKUT TERSCROLL DENGAN HALAMAN) ----------------- */}
+      {/* ----------------- CLEAN LUXURY HEADER (MENU • BEAUTY LOTION • ACQUIRE & CONTACT) ----------------- */}
       <header className="relative w-full bg-[#070707] border-b border-white/10 text-white z-30 transition-all">
         <div className="w-full max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12 h-20 sm:h-24 grid grid-cols-3 items-center">
-          {/* Left: 2-Line Minimalist Menu Trigger (Spyker Iconic Hamburger) */}
+          {/* Left: Menu Trigger */}
           <div className="flex items-center justify-start">
             <button
               onClick={() => setIsNavDrawerOpen(true)}
@@ -295,7 +265,7 @@ export default function LuxuryResponsiveLanding() {
             </button>
           </div>
 
-          {/* Center: Brand Wordmark (Dedicated Symmetrical Center Column) */}
+          {/* Center: Brand Title */}
           <div className="flex items-center justify-center">
             <a
               href="#top"
@@ -303,33 +273,29 @@ export default function LuxuryResponsiveLanding() {
               className="flex flex-col items-center select-none group cursor-pointer text-center"
               aria-label="Beauty Lotion Brand Mark"
             >
-              <span className="font-sans text-lg sm:text-2xl md:text-3xl font-medium tracking-[0.3em] sm:tracking-[0.35em] uppercase text-white group-hover:text-[#e8c5c1] transition-colors leading-none whitespace-nowrap">
+              <span className="font-sans text-xl sm:text-2xl md:text-3xl font-medium tracking-[0.3em] sm:tracking-[0.35em] uppercase text-white group-hover:text-[#e8c5c1] transition-colors leading-none whitespace-nowrap">
                 BEAUTY LOTION
-              </span>
-              <span className="text-[8px] sm:text-[9px] tracking-[0.4em] uppercase text-[#d08c81] font-mono mt-1 whitespace-nowrap">
-                Cellular Skin Fitness
               </span>
             </a>
           </div>
 
-          {/* Right: Stark Spyker-Style Rectangular Action Buttons */}
+          {/* Right: Acquire & Contact */}
           <div className="flex items-center justify-end space-x-2 sm:space-x-3">
             <button
               onClick={() => setIsOrderModalOpen(true)}
-              className="rounded-[2px] bg-white text-black hover:bg-stone-200 text-[10px] sm:text-[11px] tracking-[0.2em] sm:tracking-[0.22em] uppercase font-semibold px-3 sm:px-6 py-2.5 transition-all flex items-center gap-1.5 sm:gap-2 cursor-pointer shadow-lg whitespace-nowrap"
+              className="rounded-[2px] bg-white text-black hover:bg-stone-200 text-[10px] sm:text-[11px] tracking-[0.2em] sm:tracking-[0.22em] uppercase font-semibold px-4 sm:px-6 py-2.5 transition-all flex items-center gap-1.5 sm:gap-2 cursor-pointer shadow-lg whitespace-nowrap"
             >
               <ShoppingBag className="w-3.5 h-3.5" />
               <span>Acquire</span>
             </button>
 
             <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden sm:flex rounded-[2px] border border-white/25 hover:border-white text-white text-[10px] sm:text-[11px] tracking-[0.2em] uppercase font-medium px-4 py-2.5 transition-all items-center gap-1.5 bg-white/5 whitespace-nowrap"
+              href="#concierge"
+              onClick={(e) => scrollToSection(e, "concierge")}
+              className="hidden sm:flex rounded-[2px] border border-white/25 hover:border-white text-white text-[10px] sm:text-[11px] tracking-[0.2em] uppercase font-medium px-4 py-2.5 transition-all items-center gap-1.5 bg-white/5 whitespace-nowrap cursor-pointer hover:bg-white/10"
             >
               <MessageCircle className="w-3.5 h-3.5 text-[#d08c81]" />
-              <span>Desk</span>
+              <span>Contact</span>
             </a>
           </div>
         </div>
